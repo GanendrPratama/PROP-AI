@@ -1,0 +1,981 @@
+price,location,bedrooms,toilet,garage,LT,LB
+4099999999,"Kelapa Gading, Jakarta Utara",5.0,3.0,2.0,162.0,252.0
+6400000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,4.0,1.0,184.0,250.0
+750000000,"Bekasi Utara, Bekasi",2.0,1.0,1.0,80.0,50.0
+258000000,"Kalideres, Jakarta Barat",3.0,1.0,,40.0,40.0
+490000000,"Sawangan, Depok",2.0,1.0,1.0,72.0,50.0
+483000000,"Cibinong, Bogor",1.0,1.0,,161.0,197.0
+3500000000,"Bintaro, Tangerang Selatan",4.0,3.0,2.0,120.0,140.0
+281000000,"Koja, Jakarta Utara",5.0,2.0,,107.0,70.0
+5300000000,"Penjaringan, Jakarta Utara",2.0,2.0,,10.0,100.0
+86400000,"Periuk, Tangerang",2.0,1.0,,60.0,55.0
+1410000000,"Alam Sutera, Tangerang",3.0,2.0,1.0,66.0,74.0
+9000000000,"Lebak Bulus, Jakarta Selatan",3.0,3.0,2.0,440.0,310.0
+7200000000,"Kemayoran, Jakarta Pusat",4.0,2.0,,607.0,150.0
+7760000000,"Kemang, Jakarta Selatan",4.0,4.0,2.0,150.0,300.0
+86200000,"Rajeg, Tangerang",2.0,1.0,,220.0,220.0
+850000000,"Jatimakmur, Bekasi",2.0,1.0,1.0,88.0,60.0
+1600000000,"Cibubur, Jakarta Timur",3.0,2.0,1.0,72.0,82.0
+614000000,"Buah Batu, Bandung",1.0,,,90.0,106.0
+2740000000,"Palmerah, Jakarta Barat",1.0,1.0,,176.0,103.0
+2800000000,"Cileungsi, Bogor",3.0,3.0,1.0,120.0,140.0
+3850000000,"Setiabudi, Bandung",3.0,1.0,1.0,300.0,300.0
+16000000000,"Tanah Kusir, Jakarta Selatan",6.0,4.0,3.0,653.0,430.0
+1700000000,"Tanah Baru, Depok",3.0,3.0,1.0,110.0,180.0
+770000000,"Gianyar, Gianyar",2.0,1.0,1.0,100.0,36.0
+385000000,"Parung Panjang, Bogor",1.0,1.0,1.0,60.0,27.0
+18500000000,"Radio Dalam, Jakarta Selatan",,,,748.0,748.0
+1300000000,"Kota Wisata, Jakarta Timur",2.0,2.0,1.0,60.0,54.0
+4550000000,"Tomang, Jakarta Barat",8.0,5.0,2.0,315.0,500.0
+4750000000,"Joglo, Jakarta Barat",7.0,4.0,2.0,2.0,177.0
+1100000000,"Cikarang Selatan, Bekasi",3.0,3.0,1.0,64.0,72.0
+1110000000,"Tarumajaya, Bekasi",3.0,2.0,,105.0,105.0
+1600000000,"Taman Griya, Badung",3.0,3.0,1.0,85.0,100.0
+930000000,"Garuda, Bandung",4.0,3.0,1.0,60.0,90.0
+4350000000,"BSD De Park, Tangerang",3.0,3.0,1.0,210.0,153.0
+420000000,"Tangerang, Tangerang",4.0,2.0,,60.0,100.0
+1790000000,"Beji, Depok",3.0,3.0,,88.0,88.0
+750000000,"Gunung Sindur, Bogor",2.0,1.0,,72.0,72.0
+560000000,"Bogor Timur, Bogor",2.0,1.0,,60.0,42.0
+720000000,"Batu Ceper, Tangerang",2.0,1.0,,60.0,35.0
+990000000,"Jati Uwung, Tangerang",3.0,2.0,,72.0,69.0
+990000000,"Jati Uwung, Tangerang",3.0,2.0,,72.0,69.0
+450000000,"Cimanggis, Depok",2.0,1.0,,75.0,55.0
+750000000,"Tanah Sareal, Bogor",2.0,1.0,,90.0,60.0
+1440000000,"Sukmajaya, Depok",3.0,2.0,,94.0,58.0
+730000000,"Cipayung, Depok",3.0,1.0,,71.0,52.0
+1050000000,"Antapani, Bandung",2.0,1.0,1.0,96.0,70.0
+1550000000,"Graha Raya, Tangerang Selatan",3.0,2.0,,75.0,150.0
+2600000000,"Tanjung Duren Selatan, Jakarta Barat",4.0,4.0,1.0,117.0,200.0
+850000000,"Arcamanik, Bandung",3.0,2.0,1.0,116.0,70.0
+3000000000,"Tamalate, Makassar",4.0,4.0,2.0,160.0,190.0
+1750000000,"Summarecon Serpong, Tangerang",2.0,2.0,1.0,2.0,2.0
+2200000000,"BSD Puspita Loka, Tangerang",3.0,3.0,1.0,66.0,95.0
+2390000000,"Taman Ratu, Jakarta Barat",4.0,3.0,1.0,3.0,138.0
+2550000000,"Turangga, Bandung",4.0,3.0,2.0,2.0,2.0
+7500000000,"Cideng, Jakarta Pusat",4.0,3.0,1.0,250.0,600.0
+447000000,"Utan Kayu, Jakarta Timur",2.0,1.0,,21.0,41.0
+3750000000,"Cireundeu, Tangerang",6.0,3.0,4.0,630.0,400.0
+600000000,"Jombang, Tangerang",2.0,1.0,1.0,67.0,40.0
+2400000000,"Samarinda Utara, Samarinda",5.0,3.0,2.0,126.0,123.0
+2200000000,"BSD Green Wich, Tangerang",3.0,3.0,1.0,66.0,95.0
+1020000000,"Poris, Tangerang",3.0,2.0,1.0,52.0,90.0
+3300000000,"BSD Residence One, Tangerang",3.0,2.0,2.0,84.0,137.0
+1980000000,"Bengkong, Batam",4.0,3.0,2.0,136.0,142.0
+1500000000,"Batam Kota, Batam",4.0,3.0,2.0,96.0,111.0
+2300000000,"Graha, Surabaya",3.0,3.0,2.0,90.0,132.0
+850000000,"Kuta Alam, Banda Aceh",5.0,1.0,,212.0,100.0
+1260000000,"Batam Centre, Batam",3.0,3.0,2.0,98.0,76.0
+2440000000,"Singgasana, Bandung",3.0,2.0,1.0,128.0,123.0
+3690000000,"Puri Media, Jakarta Barat",5.0,3.0,2.0,135.0,193.0
+2100000000,"Duri Kosambi, Jakarta Barat",3.0,2.0,,160.0,100.0
+7500000000,"Condet, Jakarta Timur",5.0,4.0,4.0,397.0,370.0
+459000000,"Mangga Dua, Jakarta Barat",1.0,1.0,,17.0,32.0
+1230000000,"Cikupa Citra Raya, Tangerang",3.0,2.0,1.0,120.0,136.0
+21000000000,"Ampera, Jakarta Selatan",4.0,3.0,9.0,1034.0,500.0
+1600000000,"Ciangsana, Bogor",4.0,3.0,1.0,100.0,185.0
+375000000,"Gresik, Gresik",2.0,1.0,1.0,72.0,72.0
+1700000000,"Taman Surya, Jakarta Barat",2.0,2.0,1.0,5.0,5.0
+3200000000,"Kuta, Badung",3.0,3.0,1.0,85.0,116.0
+1350000000,"Karang Tengah, Tangerang",2.0,3.0,1.0,54.0,150.0
+1950000000,"Cigadung, Bandung",3.0,3.0,2.0,100.0,120.0
+890000000,"Pondok Aren, Tangerang Selatan",3.0,2.0,,102.0,72.0
+1750000000,"Mulyosari, Surabaya",4.0,3.0,2.0,108.0,160.0
+1800000000,"Summarecon Crown Gading, Bekasi",4.0,3.0,2.0,77.0,93.0
+2420000000,"Jatiwarna, Bekasi",5.0,3.0,3.0,403.0,200.0
+4680000000,"Pemogan, Denpasar",4.0,2.0,3.0,144.0,300.0
+1700000000,"Renon, Denpasar",3.0,3.0,2.0,80.0,120.0
+1390000000,"Pagedangan, Tangerang",3.0,2.0,,56.0,78.0
+3400000000,"Gading Serpong Pondok Hijau Golf, Tangerang",3.0,3.0,1.0,9.0,180.0
+2350000000,"Gading Serpong Scientia Garden, Tangerang",3.0,3.0,1.0,7.0,7.0
+8900000000,"Sektor 1 - Bintaro, Jakarta Selatan",5.0,3.0,2.0,450.0,385.0
+1700000000,"Kopo, Bandung",2.0,1.0,1.0,82.0,72.0
+1200000000,"Pondok Cabe, Tangerang",3.0,2.0,1.0,57.0,72.0
+1250000000,"Sedati, Sidoarjo",2.0,2.0,1.0,112.0,112.0
+2100000000,"Villa Melati Mas, Tangerang Selatan",4.0,4.0,1.0,120.0,160.0
+3500000000,"Sektor 7-Bintaro, Tangerang Selatan",4.0,3.0,2.0,120.0,163.0
+10500000000,"Kedoya Selatan, Jakarta Barat",4.0,3.0,3.0,523.0,850.0
+3400000000,"Pulo Asem, Jakarta Timur",5.0,4.0,1.0,130.0,200.0
+650000000,"Kalisari, Jakarta Timur",3.0,2.0,,50.0,60.0
+4000000000,"Lembang, Bandung Barat",5.0,4.0,3.0,240.0,210.0
+869000000,"Sawah Besar, Jakarta Pusat",2.0,1.0,1.0,24.0,68.0
+260000000,"Rangkapanjaya, Depok",2.0,1.0,,50.0,36.0
+1630000000,"Mumbul, Badung",3.0,2.0,1.0,100.0,90.0
+1750000000,"Gading Serpong Cluster Bohemia, Tangerang",3.0,2.0,2.0,90.0,150.0
+18500000000,"Menteng Dalam, Jakarta Selatan",4.0,3.0,4.0,603.0,400.0
+1280000000,"Jatisampurna, Bekasi",2.0,2.0,,55.0,53.0
+55000000000,"Patal Senayan, Jakarta Selatan",5.0,5.0,1.0,435.0,1000.0
+1280000000,"Kunciran, Tangerang",3.0,2.0,1.0,88.0,110.0
+1750000000,"Blimbing, Malang",3.0,3.0,,220.0,197.0
+890000000,"Gedangan, Sidoarjo",3.0,1.0,1.0,,
+1800000000,"Gununganyar, Surabaya",3.0,2.0,1.0,200.0,136.0
+999000000,"Cimahi Utara, Cimahi",3.0,2.0,1.0,60.0,60.0
+2000000000,"Kebomas, Gresik",5.0,4.0,1.0,126.0,252.0
+646000000,"Berbah, Sleman",2.0,1.0,2.0,120.0,120.0
+166000000,"Kaliwates, Jember",2.0,1.0,,66.0,27.0
+650000000,"Sukun, Malang",2.0,2.0,1.0,102.0,84.0
+1800000000,"Panjer, Denpasar",3.0,3.0,,85.0,114.0
+750000000,"Jatikramat, Bekasi",2.0,1.0,1.0,78.0,78.0
+2200000000,"Banjar Wijaya, Tangerang",3.0,3.0,1.0,144.0,200.0
+1890000000,"Summarecon Tangerang, Tangerang",2.0,2.0,,1.0,60.0
+7500000000,"Semarang Tengah, Semarang",4.0,3.0,2.0,326.0,260.0
+280000000,"Bintara, Bekasi",4.0,2.0,,48.0,96.0
+2550000000,"Daan Mogot, Tangerang",4.0,4.0,,90.0,150.0
+1580000000,"Alam Sutera 2, Tangerang",3.0,2.0,1.0,72.0,84.0
+600000000,"Sukamaju, Bogor",3.0,2.0,,123.0,70.0
+2700000000,"Jimbaran, Badung",3.0,2.0,1.0,170.0,130.0
+7500000000,"Denpasar Utara, Denpasar",5.0,5.0,2.0,360.0,570.0
+2600000000,"Cibubur, Depok",4.0,3.0,1.0,150.0,180.0
+2350000000,"Ciganjur, Jakarta Selatan",4.0,3.0,2.0,142.0,225.0
+18800000000,"Bondalem, Buleleng",6.0,7.0,,5500.0,770.0
+800000000,"Rawakalong, Tangerang",3.0,3.0,1.0,78.0,156.0
+1250000000,"Suradita, Tangerang",3.0,2.0,2.0,77.0,60.0
+3400000000,"BSD Delatinos, Tangerang",3.0,3.0,2.0,200.0,350.0
+800000000,"Semen, Kediri",3.0,2.0,1.0,192.0,120.0
+1300000000,"Sesetan, Denpasar",1.0,2.0,1.0,69.0,56.0
+3900000000,"Green Ville, Jakarta Barat",4.0,3.0,,144.0,280.0
+4000000000,"Kapuk Muara, Jakarta Utara",5.0,3.0,1.0,,
+1700000000,"Kemang, Bogor",6.0,5.0,2.0,105.0,170.0
+1450000000,"Legenda Wisata, Jakarta Timur",4.0,3.0,1.0,120.0,200.0
+215000000,"Baleendah, Bandung",2.0,1.0,1.0,60.0,35.0
+1900000000,"Tembalang, Semarang",12.0,12.0,1.0,107.0,144.0
+6750000000,"Setra Sari, Bandung",4.0,3.0,2.0,520.0,336.0
+600000000,"Colomadu, Karanganyar",3.0,2.0,2.0,75.0,80.0
+1770000000,"Ciputat Timur, Tangerang Selatan",3.0,3.0,,180.0,120.0
+575000000,"Bubulak, Bogor",2.0,1.0,1.0,72.0,36.0
+2250000000,"Gunung Batu, Bandung",3.0,2.0,2.0,325.0,160.0
+3750000000,"Simpang Lima, Semarang",3.0,2.0,1.0,206.0,220.0
+650000000,"Pamoyanan, Bogor",2.0,1.0,1.0,72.0,54.0
+474000000,"Sukodono, Sidoarjo",2.0,1.0,1.0,60.0,36.0
+1990000000,"Sidakarya, Denpasar",3.0,3.0,2.0,100.0,102.0
+1000000000,"Tamansari, Bogor",4.0,4.0,,90.0,95.0
+550000000,"Pondokmelati, Bekasi",2.0,1.0,,60.0,40.0
+1390000000,"Cibodas, Tangerang",3.0,3.0,,82.0,62.0
+2300000000,"Setra Duta, Bandung",3.0,2.0,,,
+16500000000,"Sumurbandung, Bandung",8.0,3.0,,553.0,732.0
+6500000000,"Lengkong, Bandung",4.0,3.0,4.0,289.0,251.0
+19000000000,"Sayap Dago, Bandung",8.0,5.0,12.0,2.0,2.0
+12700000000,"Riau, Bandung",4.0,1.0,,405.0,215.0
+4550000000,"BKR, Bandung",4.0,1.0,2.0,266.0,116.0
+16000000000,"Hegarmanah, Bandung",4.0,5.0,2.0,790.0,600.0
+6000000000,"Dago Pakar, Bandung",3.0,3.0,2.0,387.0,225.0
+5000000000,"Umalas, Badung",2.0,2.0,1.0,200.0,150.0
+3200000000,"Kelapa Dua, Jakarta Barat",2.0,2.0,,144.0,136.0
+520000000,"Babelan, Bekasi",2.0,1.0,,60.0,45.0
+6080000000,"Wijaya, Jakarta Selatan",3.0,3.0,2.0,76.0,375.0
+1900000000,"Sektor 1D-Gading Serpong, Tangerang",3.0,3.0,2.0,2.0,140.0
+1200000000,"Ubung, Denpasar",2.0,1.0,1.0,114.0,60.0
+495000000,"Cibaduyut, Bandung",2.0,1.0,1.0,60.0,50.0
+2170000000,"Pulomas, Jakarta Timur",3.0,2.0,1.0,84.0,140.0
+430000000,"Ciomas, Bogor",2.0,1.0,,78.0,52.0
+780000000,"Parung, Bogor",2.0,2.0,,150.0,150.0
+770000000,"Medan Satria, Bekasi",2.0,1.0,,65.0,45.0
+1170000000,"Babakan Madang, Bogor",2.0,1.0,,90.0,70.0
+2000000000,"Pondok Betung, Tangerang",4.0,3.0,1.0,355.0,144.0
+1800000000,"Sukomanunggal, Surabaya",4.0,1.0,1.0,200.0,150.0
+12000000000,"Cihanjuang, Bandung",10.0,9.0,6.0,1217.0,1217.0
+810000000,"Cilebut, Bogor",2.0,1.0,,6.0,6.0
+15000000000,"Sukajadi, Bandung",4.0,4.0,4.0,822.0,822.0
+4900000000,"Green Mansion, Jakarta Barat",4.0,4.0,1.0,120.0,180.0
+2280000000,"Bambu Apus, Jakarta Timur",3.0,3.0,2.0,90.0,110.0
+5250000000,"Keramas, Gianyar",4.0,4.0,2.0,5.0,250.0
+333000000,"Pengasih, Kulon Progo",2.0,1.0,1.0,95.0,50.0
+940000000,"Rawalumbu, Bekasi",3.0,2.0,,123.0,50.0
+6500000000,"kertajaya, Surabaya",4.0,4.0,2.0,12.0,300.0
+1900000000,"Soekarno Hatta, Bandung",3.0,2.0,1.0,90.0,140.0
+350000000,"Pondok Ranggon, Jakarta Timur",2.0,1.0,,40.0,32.0
+1350000000,"Regol, Bandung",4.0,2.0,,140.0,130.0
+795000000,"Duta Harapan, Bekasi",3.0,1.0,1.0,0.72,0.72
+2900000000,"Rawa Buaya, Jakarta Barat",6.0,4.0,2.0,84.0,144.0
+520000000,"Mustikajaya, Bekasi",2.0,1.0,,5.0,5.0
+1900000000,"Balong Sari, Surabaya",3.0,4.0,,144.0,250.0
+450000000,"Banguntapan, Bantul",2.0,1.0,1.0,77.0,45.0
+550000000,"Makasar, Jakarta Timur",2.0,2.0,1.0,29.0,50.0
+104000000000,"Pisangan Lama, Jakarta Timur",3.0,3.0,1.0,50.0,70.0
+3590000000,"Cijagra, Bandung",5.0,2.0,2.0,230.0,250.0
+1500000000,"Kedung Halang, Bogor",3.0,3.0,1.0,88.0,89.0
+1350000000,"Medan Selayang, Medan",3.0,3.0,1.0,90.0,130.0
+786000000,"Ngaliyan, Semarang",,,,194.0,58.0
+877000000,"Kartasura, Sukoharjo",1.0,1.0,,150.0,113.0
+960000000,"Medan Johor, Medan",3.0,2.0,1.0,138.0,80.0
+399000000,"Semarang Barat, Semarang",3.0,1.0,1.0,60.0,60.0
+1000000000,"Sawangan, Depok",4.0,4.0,2.0,77.0,101.0
+26000000000,"Cipete, Jakarta Selatan",6.0,6.0,6.0,1162.0,800.0
+3300000000,"Bintaro, Tangerang Selatan",4.0,3.0,2.0,9.0,9.0
+4900000000,"Sunter, Jakarta Utara",,,,180.0,250.0
+4600000000,"Cakung, Jakarta Timur",5.0,4.0,2.0,112.0,156.0
+8900000000,"Sunter, Jakarta Utara",4.0,3.0,,,500.0
+3500000000,"Sunter, Jakarta Utara",3.0,2.0,,90.0,150.0
+5800000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,3.0,2.0,175.0,250.0
+19500000000,"Kelapa Gading, Jakarta Utara",5.0,5.0,4.0,513.0,800.0
+3890000000,"BSD, Tangerang Selatan",5.0,6.0,2.0,160.0,240.0
+7500000000,"Kelapa Gading, Jakarta Utara",4.0,4.0,2.0,160.0,250.0
+13200000000,"Pantai Indah Kapuk, Jakarta Utara",3.0,3.0,2.0,300.0,475.0
+1720000000,"Kelapa Gading, Jakarta Utara",3.0,2.0,1.0,75.0,90.0
+4800000000,"Sunter, Jakarta Utara",7.0,4.0,2.0,200.0,350.0
+490000000,"Sawangan, Depok",2.0,1.0,1.0,72.0,50.0
+5500000000,"Kelapa Gading, Jakarta Utara",6.0,5.0,3.0,153.0,450.0
+10900000000,"Bintaro, Jakarta Selatan",6.0,6.0,,823.0,823.0
+3500000000,"Bintaro, Tangerang Selatan",4.0,3.0,2.0,120.0,140.0
+2200000000,"Bintaro, Tangerang Selatan",4.0,3.0,2.0,84.0,101.0
+3600000000,"Kelapa Gading, Jakarta Utara",4.0,4.0,1.0,3.0,3.0
+8700000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,3.0,2.0,200.0,280.0
+1300000000,"Limo, Depok",3.0,2.0,1.0,60.0,60.0
+1500000000,"Bojongsoang, Bandung",2.0,1.0,1.0,90.0,73.0
+2800000000,"Jati Asih, Bekasi",3.0,3.0,1.0,120.0,140.0
+6900000000,"Kebayoran Baru, Jakarta Selatan",4.0,4.0,2.0,76.0,375.0
+3500000000,"Meruya, Jakarta Barat",4.0,2.0,2.0,2.0,2.0
+1750000000,"Taman Meruya, Jakarta Barat",2.0,2.0,1.0,120.0,90.0
+5300000000,"Kav DKI, Jakarta Barat",4.0,4.0,3.0,375.0,436.0
+2500000000,"Pancoran, Jakarta Selatan",2.0,2.0,1.0,111.0,105.0
+750000000,"Kramat Jati, Jakarta Timur",2.0,1.0,1.0,1.0,1.0
+3100000000,"Citra Garden, Jakarta Barat",3.0,2.0,1.0,2.0,2.0
+365000000,"Jonggol, Bogor",3.0,2.0,1.0,72.0,72.0
+1350000000,"Cinere, Depok",3.0,2.0,1.0,60.0,90.0
+1400000000,"Kota Wisata, Bogor",2.0,2.0,1.0,72.0,70.0
+1230000000,"Cikupa Citra Raya, Tangerang",3.0,2.0,1.0,120.0,136.0
+3600000000,"Alam Sutera, Tangerang",3.0,3.0,1.0,170.0,200.0
+7250000000,"Cipete, Jakarta Selatan",4.0,2.0,1.0,330.0,490.0
+25500000000,"Jagakarsa, Jakarta Selatan",5.0,4.0,8.0,2999.0,500.0
+1300000000,"Sawangan, Depok",3.0,2.0,1.0,60.0,60.0
+21000000000,"Ampera, Jakarta Selatan",4.0,3.0,9.0,1034.0,500.0
+5800000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,3.0,2.0,175.0,250.0
+1100000000,"Lippo Cikarang, Cikarang",3.0,3.0,1.0,64.0,72.0
+281000000,"Cakung, Jakarta Timur",2.0,1.0,,93.0,93.0
+13800000000,"Puri Indah, Jakarta Barat",3.0,2.0,4.0,532.0,203.0
+19500000000,"Kelapa Gading, Jakarta Utara",5.0,5.0,4.0,513.0,800.0
+3890000000,"BSD, Tangerang Selatan",5.0,6.0,2.0,160.0,240.0
+7500000000,"Kelapa Gading, Jakarta Utara",4.0,4.0,2.0,160.0,250.0
+13200000000,"Pantai Indah Kapuk, Jakarta Utara",3.0,3.0,2.0,300.0,475.0
+1720000000,"Kelapa Gading, Jakarta Utara",3.0,2.0,1.0,75.0,90.0
+1750000000,"Pantai Indah Kapuk, Jakarta Utara",2.0,2.0,1.0,48.0,96.0
+9000000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,3.0,,1.0,1.0
+4800000000,"Sunter, Jakarta Utara",7.0,4.0,2.0,200.0,350.0
+490000000,"Sawangan, Depok",2.0,1.0,1.0,72.0,50.0
+5500000000,"Kelapa Gading, Jakarta Utara",6.0,5.0,3.0,153.0,450.0
+10900000000,"Bintaro, Jakarta Selatan",6.0,6.0,,823.0,823.0
+3500000000,"Bintaro, Tangerang Selatan",4.0,3.0,2.0,120.0,140.0
+2200000000,"Bintaro, Tangerang Selatan",4.0,3.0,2.0,84.0,101.0
+3600000000,"Kelapa Gading, Jakarta Utara",4.0,4.0,1.0,3.0,3.0
+1820000000,"Kelapa Gading, Jakarta Utara",3.0,2.0,2.0,90.0,150.0
+3500000000,"Kelapa Gading, Jakarta Utara",4.0,4.0,2.0,8.0,8.0
+4200000000,"Sunter, Jakarta Utara",3.0,3.0,,236.0,250.0
+1600000000,"Metland Puri, Jakarta Barat",2.0,2.0,1.0,55.0,63.0
+2900000000,"Kalideres, Jakarta Barat",4.0,3.0,2.0,,
+5350000000,"Green Lake City, Jakarta Barat",3.0,3.0,2.0,,
+1000000000,"Cipondoh, Tangerang",2.0,2.0,1.0,48.0,4.0
+1450000000,"Green Lake City, Jakarta Barat",2.0,2.0,1.0,60.0,
+1900000000,"Sunter, Jakarta Utara",3.0,2.0,1.0,1.0,100.0
+1200000000,"Sunter, Jakarta Utara",2.0,1.0,1.0,78.0,60.0
+2950000000,"Kelapa Gading, Jakarta Utara",5.0,4.0,2.0,9.0,250.0
+2300000000,"Sunter, Jakarta Utara",3.0,3.0,1.0,132.0,120.0
+6000000000,"Sentul City, Bogor",2.0,1.0,2.0,926.0,130.0
+13500000000,"Kebayoran Baru, Jakarta Selatan",,1.0,2.0,244.0,200.0
+750000000,"Bintaro, Tangerang Selatan",2.0,1.0,1.0,69.0,36.0
+1700000000,"Kelapa Gading, Jakarta Utara",3.0,2.0,2.0,4.0,67.0
+2650000000,"Kelapa Gading, Jakarta Utara",5.0,4.0,2.0,90.0,190.0
+3300000000,"Kelapa Gading, Jakarta Utara",5.0,4.0,2.0,102.0,250.0
+2650000000,"Kelapa Gading, Jakarta Utara",4.0,4.0,2.0,102.0,64.0
+3300000000,"Kelapa Gading, Jakarta Utara",4.0,4.0,2.0,102.0,280.0
+12900000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,4.0,1.0,1.0,455.0
+4600000000,"Kelapa Gading, Jakarta Utara",5.0,4.0,2.0,112.0,156.0
+13500000000,"Kebayoran Baru, Jakarta Selatan",4.0,3.0,2.0,235.0,500.0
+48000000000,"Kebayoran Baru, Jakarta Selatan",17.0,18.0,12.0,620.0,1200.0
+6000000000,"Pondok Indah, Jakarta Selatan",,4.0,1.0,250.0,180.0
+1550000000,"Green Lake City, Jakarta Barat",3.0,2.0,1.0,,102.0
+7230000000,"Pantai Indah Kapuk 2, Jakarta Utara",4.0,4.0,2.0,200.0,225.0
+9500000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,3.0,2.0,252.0,362.0
+4900000000,"Buah Batu, Bandung",4.0,3.0,2.0,176.0,172.0
+6900000000,"Kuningan, Jakarta Selatan",4.0,4.0,2.0,76.0,375.0
+6900000000,"Cipete, Jakarta Selatan",4.0,4.0,2.0,76.0,375.0
+5800000000,"Jimbaran, Badung",3.0,4.0,2.0,16.0,270.0
+1550000000,"Green Lake City, Jakarta Barat",3.0,2.0,1.0,,100.0
+4600000000,"Puri Indah, Jakarta Barat",2.0,2.0,1.0,160.0,160.0
+20000000000,"Sentul City, Bogor",4.0,5.0,4.0,1375.0,550.0
+13000000000,"Cilandak, Jakarta Selatan",6.0,6.0,3.0,358.0,800.0
+1980000000,"Cisauk, Tangerang",3.0,3.0,2.0,98.0,150.0
+2950000000,"Gading Serpong, Tangerang",4.0,3.0,1.0,160.0,120.0
+4700000000,"Kelapa Gading, Jakarta Utara",4.0,5.0,3.0,206.0,300.0
+4500000000,"Kelapa Gading, Jakarta Utara",4.0,2.0,2.0,153.0,250.0
+49000000000,"Kuningan, Jakarta Selatan",4.0,4.0,5.0,540.0,1100.0
+6500000000,"Kemang, Jakarta Selatan",4.0,4.0,1.0,130.0,285.0
+4600000000,"Puri Indah, Jakarta Barat",2.0,2.0,1.0,160.0,160.0
+20000000000,"Sentul City, Bogor",4.0,5.0,4.0,1375.0,550.0
+13000000000,"Cilandak, Jakarta Selatan",6.0,6.0,3.0,358.0,800.0
+1980000000,"Cisauk, Tangerang",3.0,3.0,2.0,98.0,150.0
+2950000000,"Gading Serpong, Tangerang",4.0,3.0,1.0,160.0,120.0
+4700000000,"Kelapa Gading, Jakarta Utara",4.0,5.0,3.0,206.0,300.0
+4500000000,"Kelapa Gading, Jakarta Utara",4.0,2.0,2.0,153.0,250.0
+49000000000,"Kuningan, Jakarta Selatan",4.0,4.0,5.0,540.0,1100.0
+6500000000,"Kemang, Jakarta Selatan",4.0,4.0,1.0,130.0,285.0
+25000000000,"Pondok Indah, Jakarta Selatan",5.0,3.0,2.0,412.0,372.0
+14500000000,"Bintaro, Tangerang Selatan",4.0,3.0,4.0,515.0,515.0
+53000000000,"Menteng, Jakarta Pusat",4.0,4.0,6.0,548.0,600.0
+2550000000,"Bintaro, Tangerang Selatan",4.0,3.0,1.0,120.0,240.0
+32000000000,"Pondok Indah, Jakarta Selatan",6.0,6.0,7.0,600.0,600.0
+40000000000,"Cipete, Jakarta Selatan",5.0,5.0,4.0,864.0,796.0
+14800000000,"Pejaten, Jakarta Selatan",5.0,4.0,4.0,371.0,380.0
+42000000000,"Pondok Indah, Jakarta Selatan",5.0,5.0,4.0,603.0,850.0
+2700000000,"Cilandak, Jakarta Selatan",5.0,3.0,2.0,124.0,125.0
+27900000000,"Kemang, Jakarta Selatan",5.0,4.0,5.0,1000.0,1400.0
+7900000000,"Kemang, Jakarta Selatan",3.0,2.0,5.0,404.0,250.0
+1200000000,"Serpong, Tangerang Selatan",2.0,1.0,1.0,72.0,45.0
+1100000000,"Serpong, Tangerang Selatan",3.0,2.0,1.0,120.0,55.0
+495000000,"BSD, Tangerang",2.0,1.0,,72.0,39.0
+10000000000,"Sunter, Jakarta Utara",3.0,5.0,,12.0,12.0
+14500000000,"Sunter, Jakarta Utara",4.0,3.0,,630.0,500.0
+9900000000,"Sunter, Jakarta Utara",4.0,3.0,1.0,364.0,560.0
+4950000000,"Sunter, Jakarta Utara",3.0,4.0,2.0,247.0,400.0
+2900000000,"Gading Serpong, Tangerang",3.0,4.0,2.0,126.0,126.0
+23000000000,"Mega Kuningan, Jakarta Selatan",4.0,4.0,,300.0,300.0
+2800000000,"Cibubur, Bogor",3.0,3.0,1.0,120.0,140.0
+3000000000,"Serpong, Tangerang Selatan",3.0,3.0,1.0,98.0,118.0
+500000000,"Sawangan, Depok",2.0,2.0,1.0,50.0,45.0
+5500000000,"Sunter, Jakarta Utara",3.0,3.0,2.0,196.0,350.0
+770000000,"Gading Serpong, Tangerang",1.0,1.0,1.0,90.0,60.0
+3400000000,"Kelapa Gading, Jakarta Utara",4.0,4.0,2.0,102.0,280.0
+3000000000,"Kelapa Gading, Jakarta Utara",3.0,2.0,2.0,170.0,120.0
+2300000000,"Cakung, Jakarta Timur",3.0,3.0,1.0,84.0,87.0
+1000000000,"Sentul City, Bogor",3.0,2.0,1.0,72.0,60.0
+1500000000,"Cipondoh, Tangerang",4.0,3.0,1.0,90.0,150.0
+900000000,"Bekasi Utara, Bekasi",3.0,2.0,,120.0,90.0
+27900000000,"Kemang, Jakarta Selatan",5.0,4.0,5.0,1000.0,1400.0
+7900000000,"Kemang, Jakarta Selatan",3.0,2.0,5.0,404.0,250.0
+37000000000,"Kemang, Jakarta Selatan",4.0,3.0,6.0,1060.0,500.0
+7900000000,"Pejaten, Jakarta Selatan",3.0,2.0,5.0,404.0,300.0
+20900000000,"Kebayoran Baru, Jakarta Selatan",2.0,1.0,4.0,200.0,90.0
+14300000000,"Kemang, Jakarta Selatan",3.0,3.0,7.0,696.0,325.0
+54900000000,"Menteng, Jakarta Pusat",8.0,8.0,6.0,629.0,505.0
+44000000000,"Pondok Indah, Jakarta Selatan",5.0,5.0,6.0,627.0,1050.0
+22000000000,"Kemang, Jakarta Selatan",6.0,5.0,5.0,854.0,650.0
+23000000000,"Kemang, Jakarta Selatan",9.0,4.0,7.0,1050.0,800.0
+2200000000,"Serpong, Tangerang Selatan",3.0,3.0,1.0,66.0,95.0
+1200000000,"Serpong, Tangerang Selatan",2.0,1.0,1.0,72.0,45.0
+1100000000,"Serpong, Tangerang Selatan",3.0,2.0,1.0,120.0,55.0
+2300000000,"Harapan Indah, Bekasi",3.0,3.0,1.0,84.0,87.0
+1550000000,"Wiyung, Surabaya",4.0,3.0,,2.0,195.0
+495000000,"BSD, Tangerang",2.0,1.0,,72.0,39.0
+10000000000,"Sunter, Jakarta Utara",3.0,5.0,,12.0,12.0
+14500000000,"Sunter, Jakarta Utara",4.0,3.0,,630.0,500.0
+9900000000,"Sunter, Jakarta Utara",4.0,3.0,1.0,364.0,560.0
+4950000000,"Sunter, Jakarta Utara",3.0,4.0,2.0,247.0,400.0
+1660000000,"Sentul City, Bogor",4.0,2.0,,144.0,100.0
+760000000,"Bojong Gede, Bogor",3.0,2.0,,60.0,90.0
+670000000,"Bojong Gede, Bogor",2.0,1.0,,90.0,54.0
+970000000,"Ciracas, Jakarta Timur",2.0,2.0,,42.0,65.0
+1050000000,"Serpong, Tangerang Selatan",3.0,2.0,,66.0,77.0
+760000000,"Sentul City, Bogor",3.0,1.0,,162.0,90.0
+500000000,"Serpong, Tangerang Selatan",2.0,1.0,,60.0,45.0
+670000000,"Cibinong, Bogor",2.0,1.0,,96.0,45.0
+590000000,"Cilodong, Depok",2.0,1.0,,100.0,65.0
+2490000000,"Cileungsi, Bogor",4.0,4.0,,120.0,200.0
+890000000,"Cipayung, Jakarta Timur",3.0,2.0,,95.0,80.0
+830000000,"Lippo Karawaci, Tangerang",3.0,3.0,,84.0,150.0
+2210000000,"Kemayoran, Jakarta Pusat",5.0,5.0,,269.0,269.0
+760000000,"Sentul, Bogor",3.0,1.0,,162.0,90.0
+2230000000,"Jagakarsa, Jakarta Selatan",3.0,2.0,,112.0,112.0
+710000000,"Cibinong, Bogor",3.0,2.0,,70.0,90.0
+460000000,"Sawangan, Depok",2.0,1.0,,75.0,36.0
+1110000000,"Cinere, Depok",2.0,1.0,,118.0,54.0
+1660000000,"Bintaro, Tangerang Selatan",5.0,4.0,,144.0,220.0
+5500000000,"Cipete, Jakarta Selatan",4.0,3.0,,272.0,155.0
+2700000000,"Kota Wisata, Bogor",4.0,3.0,2.0,2.0,380.0
+9900000000,"Setiabudi, Jakarta Selatan",8.0,3.0,1.0,151.0,151.0
+4550000000,"Sektor 9-Bintaro, Tangerang Selatan",4.0,4.0,2.0,180.0,285.0
+3250000000,"Rawamangun, Jakarta Timur",3.0,3.0,2.0,100.0,150.0
+8500000000,"Cilandak, Jakarta Selatan",4.0,3.0,2.0,335.0,320.0
+28000000000,"Kemang, Jakarta Selatan",5.0,4.0,2.0,1000.0,1400.0
+3100000000,"Tebet, Jakarta Selatan",4.0,3.0,1.0,130.0,215.0
+2700000000,"Sentul City, Bogor",4.0,2.0,1.0,218.0,180.0
+7700000000,"Tebet, Jakarta Selatan",5.0,5.0,3.0,400.0,500.0
+7500000000,"Bekasi Barat, Bekasi",6.0,5.0,2.0,432.0,500.0
+1100000000,"Tambun Selatan, Bekasi",3.0,3.0,1.0,64.0,72.0
+1650000000,"Citra Garden, Jakarta Barat",3.0,2.0,1.0,120.0,100.0
+990000000,"Cileungsi, Bogor",4.0,2.0,1.0,105.0,57.0
+19500000000,"Kebayoran Baru, Jakarta Selatan",4.0,2.0,2.0,318.0,180.0
+6300000000,"BSD City, Tangerang",5.0,5.0,2.0,120.0,232.0
+2400000000,"Kebagusan, Jakarta Selatan",4.0,4.0,2.0,75.0,120.0
+6800000000,"Puri Indah, Jakarta Barat",3.0,3.0,1.0,200.0,200.0
+2300000000,"Summarecon Bekasi, Bekasi",3.0,3.0,1.0,84.0,87.0
+2300000000,"Jakarta Garden City, Jakarta Timur",3.0,3.0,1.0,84.0,87.0
+1500000000,"Cibubur, Jakarta Timur",2.0,2.0,1.0,72.0,70.0
+1900000000,"Ciracas, Jakarta Timur",3.0,2.0,1.0,91.0,98.0
+6300000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,4.0,2.0,184.0,276.0
+45800000000,"Kemang, Jakarta Selatan",5.0,3.0,10.0,2363.0,487.0
+6400000000,"Cibinong, Bogor",5.0,5.0,3.0,528.0,486.0
+3900000000,"Jimbaran, Badung",3.0,3.0,1.0,145.0,142.0
+2900000000,"Jimbaran, Badung",2.0,2.0,1.0,145.0,125.0
+13300000000,"Kemang, Jakarta Selatan",7.0,6.0,4.0,428.0,500.0
+2700000000,"Kelapa Gading, Jakarta Utara",4.0,3.0,2.0,6.0,6.0
+4900000000,"Kelapa Gading, Jakarta Utara",4.0,3.0,1.0,8.0,8.0
+5750000000,"Lebak Bulus, Jakarta Selatan",3.0,3.0,2.0,279.0,279.0
+2600000000,"Kelapa Gading, Jakarta Utara",,3.0,1.0,6.0,6.0
+2250000000,"Ciputat, Tangerang Selatan",3.0,3.0,1.0,152.0,152.0
+4850000000,"Sunter, Jakarta Utara",5.0,4.0,2.0,7.0,7.0
+52000000000,"Pondok Indah, Jakarta Selatan",4.0,5.0,4.0,634.0,720.0
+3500000000,"Kelapa Gading, Jakarta Utara",5.0,3.0,2.0,8.0,8.0
+2500000000,"Pantai Indah Kapuk, Jakarta Utara",3.0,3.0,2.0,75.0,124.0
+2620000000,"Pantai Indah Kapuk, Jakarta Utara",3.0,2.0,2.0,80.0,127.0
+3500000000,"Bintaro, Tangerang Selatan",3.0,3.0,1.0,180.0,232.0
+2200000000,"Gading Serpong, Tangerang",3.0,3.0,1.0,66.0,95.0
+1300000000,"TB Simatupang, Jakarta Selatan",3.0,2.0,1.0,60.0,60.0
+42000000000,"Cipete, Jakarta Selatan",5.0,5.0,6.0,1925.0,900.0
+2800000000,"BSD City, Tangerang",4.0,3.0,1.0,90.0,90.0
+1600000000,"Summarecon Bekasi, Bekasi",4.0,2.0,2.0,66.0,76.0
+1700000000,"Summarecon Bekasi, Bekasi",2.0,2.0,1.0,91.0,65.0
+2350000000,"Summarecon Bekasi, Bekasi",3.0,3.0,1.0,119.0,200.0
+1900000000,"Summarecon Bekasi, Bekasi",3.0,3.0,1.0,91.0,84.0
+1350000000,"Summarecon Bekasi, Bekasi",2.0,2.0,1.0,66.0,69.0
+1700000000,"Grand Wisata, Bekasi",4.0,2.0,2.0,98.0,85.0
+3750000000,"Summarecon Bekasi, Bekasi",4.0,3.0,2.0,130.0,177.0
+13500000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,4.0,,260.0,260.0
+2500000000,"Kelapa Gading, Jakarta Utara",3.0,3.0,1.0,5.0,180.0
+4200000000,"Citraland, Surabaya",,4.0,2.0,205.0,260.0
+1400000000,"Kota Wisata, Bogor",2.0,2.0,1.0,72.0,70.0
+2800000000,"Summarecon Bekasi, Bekasi",4.0,3.0,2.0,117.0,133.0
+2200000000,"Batununggal, Bandung",3.0,2.0,1.0,180.0,160.0
+3300000000,"Tebet, Jakarta Selatan",4.0,3.0,1.0,135.0,145.0
+3950000000,"Tebet, Jakarta Selatan",4.0,5.0,2.0,157.0,280.0
+7950000000,"Tebet, Jakarta Selatan",4.0,5.0,3.0,400.0,600.0
+2950000000,"Tebet, Jakarta Selatan",4.0,4.0,1.0,170.0,200.0
+5450000000,"Tebet, Jakarta Selatan",5.0,3.0,1.0,201.0,225.0
+5300000000,"Kav DKI, Jakarta Barat",4.0,4.0,3.0,375.0,436.0
+2500000000,"Pancoran, Jakarta Selatan",2.0,2.0,1.0,111.0,105.0
+750000000,"Kramat Jati, Jakarta Timur",2.0,1.0,1.0,1.0,1.0
+3100000000,"Citra Garden, Jakarta Barat",3.0,2.0,1.0,2.0,2.0
+365000000,"Jonggol, Bogor",3.0,2.0,1.0,72.0,72.0
+1350000000,"Cinere, Depok",3.0,2.0,1.0,60.0,90.0
+1400000000,"Kota Wisata, Bogor",2.0,2.0,1.0,72.0,70.0
+1230000000,"Cikupa Citra Raya, Tangerang",3.0,2.0,1.0,120.0,136.0
+3600000000,"Alam Sutera, Tangerang",3.0,3.0,1.0,170.0,200.0
+7250000000,"Cipete, Jakarta Selatan",4.0,2.0,1.0,330.0,490.0
+1300000000,"Sawangan, Depok",3.0,2.0,1.0,60.0,60.0
+21000000000,"Ampera, Jakarta Selatan",4.0,3.0,9.0,1034.0,500.0
+4200000000,"Duren Sawit, Jakarta Timur",4.0,3.0,2.0,145.0,260.0
+4850000000,"Ciputat, Tangerang Selatan",3.0,3.0,3.0,345.0,200.0
+7800000000,"Duren Tiga, Jakarta Selatan",4.0,4.0,2.0,246.0,221.0
+49000000000,"Mega Kuningan, Jakarta Selatan",4.0,4.0,5.0,540.0,1100.0
+16000000000,"Jatiwaringin, Jakarta Timur",3.0,2.0,7.0,865.0,300.0
+1600000000,"Ciangsana, Bogor",4.0,3.0,1.0,100.0,185.0
+4000000000,"BSD Green Cove, Tangerang",4.0,3.0,2.0,9.0,150.0
+6150000000,"BSD, Tangerang Selatan",7.0,5.0,2.0,380.0,323.0
+24500000000,"Kemang, Jakarta Selatan",6.0,6.0,6.0,787.0,600.0
+7200000000,"Kelapa Gading, Jakarta Utara",4.0,3.0,2.0,188.0,220.0
+6900000000,"Kelapa Gading, Jakarta Utara",4.0,3.0,1.0,180.0,350.0
+7300000000,"Sunter, Jakarta Utara",6.0,4.0,2.0,194.0,400.0
+6150000000,"BSD, Tangerang Selatan",7.0,5.0,2.0,380.0,323.0
+1350000000,"Buah Batu, Bandung",4.0,2.0,1.0,90.0,145.0
+3650000000,"Kelapa Gading, Jakarta Utara",4.0,3.0,2.0,180.0,300.0
+3900000000,"Kelapa Gading, Jakarta Utara",3.0,3.0,2.0,200.0,250.0
+2200000000,"Jimbaran, Badung",4.0,3.0,1.0,118.0,160.0
+1250000000,"Denpasar Barat, Denpasar",3.0,2.0,1.0,55.0,77.0
+1750000000,"Jimbaran, Badung",3.0,3.0,1.0,81.0,115.0
+1600000000,"Jimbaran, Badung",3.0,3.0,1.0,100.0,85.0
+7000000000,"Meruya, Jakarta Barat",5.0,4.0,3.0,,330.0
+38000000000,"Kebayoran Baru, Jakarta Selatan",6.0,6.0,6.0,863.0,1350.0
+6800000000,"BSD The Icon, Tangerang",4.0,4.0,2.0,221.0,221.0
+3500000000,"Meruya, Jakarta Barat",4.0,2.0,2.0,2.0,2.0
+4990000000,"Meruya, Jakarta Barat",4.0,3.0,2.0,11620.0,11620.0
+3950000000,"Meruya, Jakarta Barat",4.0,2.0,1.0,10.0,10.0
+53000000000,"Kebayoran Baru, Jakarta Selatan",5.0,3.0,5.0,726.0,564.0
+4099999999,"Meruya, Jakarta Barat",4.0,4.0,1.0,250.0,280.0
+35000000000,"Senopati, Jakarta Selatan",4.0,3.0,2.0,536.0,400.0
+6300000000,"Pondok Indah, Jakarta Selatan",5.0,3.0,1.0,195.0,250.0
+6000000000,"Pondok Indah, Jakarta Selatan",,4.0,1.0,250.0,180.0
+1550000000,"Green Lake City, Jakarta Barat",3.0,2.0,1.0,,102.0
+1600000000,"Citraland, Surabaya",3.0,3.0,1.0,55.0,77.0
+6900000000,"Menteng, Jakarta Pusat",4.0,4.0,2.0,76.0,375.0
+7230000000,"Pantai Indah Kapuk 2, Jakarta Utara",4.0,4.0,2.0,200.0,225.0
+9500000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,3.0,2.0,252.0,362.0
+4900000000,"Buah Batu, Bandung",4.0,3.0,2.0,176.0,172.0
+1800000000,"Cibubur, Bogor",2.0,2.0,1.0,96.0,79.0
+6900000000,"Kuningan, Jakarta Selatan",4.0,4.0,2.0,76.0,375.0
+1300000000,"Ciracas, Jakarta Timur",2.0,2.0,1.0,60.0,54.0
+6900000000,"Cipete, Jakarta Selatan",4.0,4.0,2.0,76.0,375.0
+2480000000,"Pamulang, Tangerang Selatan",2.0,2.0,1.0,224.0,100.0
+900000000,"BSD, Tangerang",2.0,2.0,,40.0,40.0
+5800000000,"Jimbaran, Badung",3.0,4.0,2.0,16.0,270.0
+1550000000,"Green Lake City, Jakarta Barat",3.0,2.0,1.0,,100.0
+4600000000,"Puri Indah, Jakarta Barat",2.0,2.0,1.0,160.0,160.0
+20000000000,"Sentul City, Bogor",4.0,5.0,4.0,1375.0,550.0
+13000000000,"Cilandak, Jakarta Selatan",6.0,6.0,3.0,358.0,800.0
+1980000000,"Cisauk, Tangerang",3.0,3.0,2.0,98.0,150.0
+2950000000,"Gading Serpong, Tangerang",4.0,3.0,1.0,160.0,120.0
+4700000000,"Kelapa Gading, Jakarta Utara",4.0,5.0,3.0,206.0,300.0
+4500000000,"Kelapa Gading, Jakarta Utara",4.0,2.0,2.0,153.0,250.0
+49000000000,"Kuningan, Jakarta Selatan",4.0,4.0,5.0,540.0,1100.0
+6500000000,"Kemang, Jakarta Selatan",4.0,4.0,1.0,130.0,285.0
+25000000000,"Pondok Indah, Jakarta Selatan",5.0,3.0,2.0,412.0,372.0
+14500000000,"Bintaro, Tangerang Selatan",4.0,3.0,4.0,515.0,515.0
+53000000000,"Menteng, Jakarta Pusat",4.0,4.0,6.0,548.0,600.0
+2550000000,"Bintaro, Tangerang Selatan",4.0,3.0,1.0,120.0,240.0
+2650000000,"Pesanggrahan, Jakarta Selatan",5.0,4.0,2.0,2.0,150.0
+32000000000,"Pondok Indah, Jakarta Selatan",6.0,6.0,7.0,600.0,600.0
+40000000000,"Cipete, Jakarta Selatan",5.0,5.0,4.0,864.0,796.0
+14800000000,"Pejaten, Jakarta Selatan",5.0,4.0,4.0,371.0,380.0
+42000000000,"Pondok Indah, Jakarta Selatan",5.0,5.0,4.0,603.0,850.0
+2700000000,"Cilandak, Jakarta Selatan",5.0,3.0,2.0,124.0,125.0
+27900000000,"Kemang, Jakarta Selatan",5.0,4.0,5.0,1000.0,1400.0
+7900000000,"Kemang, Jakarta Selatan",3.0,2.0,5.0,404.0,250.0
+37000000000,"Kemang, Jakarta Selatan",4.0,3.0,6.0,1060.0,500.0
+7900000000,"Pejaten, Jakarta Selatan",3.0,2.0,5.0,404.0,300.0
+20900000000,"Kebayoran Baru, Jakarta Selatan",2.0,1.0,4.0,200.0,90.0
+14300000000,"Kemang, Jakarta Selatan",3.0,3.0,7.0,696.0,325.0
+49000000000,"Mega Kuningan, Jakarta Selatan",4.0,4.0,5.0,540.0,1100.0
+54900000000,"Menteng, Jakarta Pusat",8.0,8.0,6.0,629.0,505.0
+44000000000,"Pondok Indah, Jakarta Selatan",5.0,5.0,6.0,627.0,1050.0
+22000000000,"Kemang, Jakarta Selatan",6.0,5.0,5.0,854.0,650.0
+23000000000,"Kemang, Jakarta Selatan",9.0,4.0,7.0,1050.0,800.0
+2200000000,"Serpong, Tangerang Selatan",3.0,3.0,1.0,66.0,95.0
+1200000000,"Serpong, Tangerang Selatan",2.0,1.0,1.0,72.0,45.0
+1100000000,"Serpong, Tangerang Selatan",3.0,2.0,1.0,120.0,55.0
+2300000000,"Harapan Indah, Bekasi",3.0,3.0,1.0,84.0,87.0
+1550000000,"Wiyung, Surabaya",4.0,3.0,,2.0,195.0
+495000000,"BSD, Tangerang",2.0,1.0,,72.0,39.0
+4500000000,"Kota Wisata, Bogor",6.0,6.0,2.0,0.375,0.375
+10000000000,"Sunter, Jakarta Utara",3.0,5.0,,12.0,12.0
+14500000000,"Sunter, Jakarta Utara",4.0,3.0,,630.0,500.0
+9900000000,"Sunter, Jakarta Utara",4.0,3.0,1.0,364.0,560.0
+4950000000,"Sunter, Jakarta Utara",3.0,4.0,2.0,247.0,400.0
+2900000000,"Gading Serpong, Tangerang",3.0,4.0,2.0,126.0,126.0
+23000000000,"Mega Kuningan, Jakarta Selatan",4.0,4.0,,300.0,300.0
+3800000000,"Tebet, Jakarta Selatan",2.0,1.0,1.0,151.0,30.0
+32500000000,"Kemang, Jakarta Selatan",5.0,4.0,10.0,1636.0,1100.0
+48000000000,"Kemang, Jakarta Selatan",1.0,1.0,20.0,5500.0,1000.0
+12500000000,"Cipete, Jakarta Selatan",4.0,4.0,4.0,500.0,400.0
+18000000000,"Kemang, Jakarta Selatan",4.0,3.0,2.0,986.0,500.0
+33000000000,"Kemang, Jakarta Selatan",5.0,4.0,5.0,1419.0,800.0
+3750000000,"Alam Sutera, Tangerang",,5.0,4.0,200.0,200.0
+7000000000,"Jagakarsa, Jakarta Selatan",4.0,3.0,4.0,1006.0,600.0
+14000000000,"Cipete, Jakarta Selatan",5.0,7.0,4.0,518.0,450.0
+1900000000,"Jatibening, Bekasi",3.0,3.0,2.0,138.0,144.0
+2750000000,"Kelapa Gading, Jakarta Utara",5.0,3.0,1.0,165.0,235.0
+2950000000,"Bintaro, Jakarta Selatan",4.0,3.0,1.0,106.0,128.0
+3500000000,"Bintaro, Jakarta Selatan",4.0,4.0,2.0,221.0,230.0
+6800000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,4.0,,200.0,320.0
+4650000000,"Serpong, Tangerang Selatan",5.0,4.0,2.0,220.0,220.0
+1900000000,"Bintaro, Tangerang Selatan",3.0,3.0,2.0,105.0,140.0
+2400000000,"Bintaro, Tangerang Selatan",4.0,2.0,2.0,,
+1450000000,"Bintaro, Tangerang Selatan",3.0,3.0,1.0,1.5,1.5
+1790000000,"Gading Serpong, Tangerang",3.0,3.0,1.0,98.0,150.0
+1790000000,"BSD, Tangerang",3.0,3.0,1.0,98.0,150.0
+4550000000,"Sektor 9-Bintaro, Tangerang Selatan",4.0,4.0,2.0,180.0,285.0
+3200000000,"Pondok Kelapa, Jakarta Timur",3.0,3.0,2.0,180.0,159.0
+3250000000,"Rawamangun, Jakarta Timur",3.0,3.0,2.0,100.0,150.0
+8500000000,"Cilandak, Jakarta Selatan",4.0,3.0,2.0,335.0,320.0
+3900000000,"Duren Sawit, Jakarta Timur",4.0,3.0,1.0,162.0,200.0
+28000000000,"Kemang, Jakarta Selatan",5.0,4.0,2.0,1000.0,1400.0
+3100000000,"Tebet, Jakarta Selatan",4.0,3.0,1.0,130.0,215.0
+2700000000,"Sentul City, Bogor",4.0,2.0,1.0,218.0,180.0
+7700000000,"Tebet, Jakarta Selatan",5.0,5.0,3.0,400.0,500.0
+7500000000,"Bekasi Barat, Bekasi",6.0,5.0,2.0,432.0,500.0
+1100000000,"Tambun Selatan, Bekasi",3.0,3.0,1.0,64.0,72.0
+1650000000,"Citra Garden, Jakarta Barat",3.0,2.0,1.0,120.0,100.0
+1300000000,"Fatmawati, Jakarta Selatan",3.0,2.0,1.0,60.0,60.0
+990000000,"Cileungsi, Bogor",4.0,2.0,1.0,105.0,57.0
+19500000000,"Kebayoran Baru, Jakarta Selatan",4.0,2.0,2.0,318.0,180.0
+1700000000,"Taman Kopo Indah, Bandung",2.0,1.0,1.0,82.0,72.0
+6300000000,"BSD City, Tangerang",5.0,5.0,2.0,120.0,232.0
+3000000000,"Cawang, Jakarta Timur",5.0,2.0,1.0,155.0,130.0
+2400000000,"Kebagusan, Jakarta Selatan",4.0,4.0,2.0,75.0,120.0
+6800000000,"Puri Indah, Jakarta Barat",3.0,3.0,1.0,200.0,200.0
+1100000000,"Tambun Selatan, Bekasi",3.0,3.0,1.0,64.0,72.0
+1650000000,"Citra Garden, Jakarta Barat",3.0,2.0,1.0,120.0,100.0
+1300000000,"Fatmawati, Jakarta Selatan",3.0,2.0,1.0,60.0,60.0
+990000000,"Cileungsi, Bogor",4.0,2.0,1.0,105.0,57.0
+19500000000,"Kebayoran Baru, Jakarta Selatan",4.0,2.0,2.0,318.0,180.0
+1700000000,"Taman Kopo Indah, Bandung",2.0,1.0,1.0,82.0,72.0
+6300000000,"BSD City, Tangerang",5.0,5.0,2.0,120.0,232.0
+3000000000,"Cawang, Jakarta Timur",5.0,2.0,1.0,155.0,130.0
+2400000000,"Kebagusan, Jakarta Selatan",4.0,4.0,2.0,75.0,120.0
+6800000000,"Puri Indah, Jakarta Barat",3.0,3.0,1.0,200.0,200.0
+2300000000,"Summarecon Bekasi, Bekasi",3.0,3.0,1.0,84.0,87.0
+2300000000,"Jakarta Garden City, Jakarta Timur",3.0,3.0,1.0,84.0,87.0
+1500000000,"Cibubur, Jakarta Timur",2.0,2.0,1.0,72.0,70.0
+1900000000,"Ciracas, Jakarta Timur",3.0,2.0,1.0,91.0,98.0
+6300000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,4.0,2.0,184.0,276.0
+45800000000,"Kemang, Jakarta Selatan",5.0,3.0,10.0,2363.0,487.0
+6400000000,"Cibinong, Bogor",5.0,5.0,3.0,528.0,486.0
+3900000000,"Jimbaran, Badung",3.0,3.0,1.0,145.0,142.0
+2900000000,"Jimbaran, Badung",2.0,2.0,1.0,145.0,125.0
+13300000000,"Kemang, Jakarta Selatan",7.0,6.0,4.0,428.0,500.0
+2700000000,"Kelapa Gading, Jakarta Utara",4.0,3.0,2.0,6.0,6.0
+4900000000,"Kelapa Gading, Jakarta Utara",4.0,3.0,1.0,8.0,8.0
+5750000000,"Lebak Bulus, Jakarta Selatan",3.0,3.0,2.0,279.0,279.0
+2600000000,"Kelapa Gading, Jakarta Utara",,3.0,1.0,6.0,6.0
+2250000000,"Ciputat, Tangerang Selatan",3.0,3.0,1.0,152.0,152.0
+4850000000,"Sunter, Jakarta Utara",5.0,4.0,2.0,7.0,7.0
+52000000000,"Pondok Indah, Jakarta Selatan",4.0,5.0,4.0,634.0,720.0
+3500000000,"Kelapa Gading, Jakarta Utara",5.0,3.0,2.0,8.0,8.0
+2500000000,"Pantai Indah Kapuk, Jakarta Utara",3.0,3.0,2.0,75.0,124.0
+2620000000,"Pantai Indah Kapuk, Jakarta Utara",3.0,2.0,2.0,80.0,127.0
+3500000000,"Bintaro, Tangerang Selatan",3.0,3.0,1.0,180.0,232.0
+2200000000,"Gading Serpong, Tangerang",3.0,3.0,1.0,66.0,95.0
+1300000000,"TB Simatupang, Jakarta Selatan",3.0,2.0,1.0,60.0,60.0
+3000000000,"Serpong, Tangerang Selatan",3.0,3.0,1.0,98.0,118.0
+1300000000,"Jagakarsa, Jakarta Selatan",3.0,2.0,1.0,60.0,60.0
+1490000000,"Cikarang, Bekasi",2.0,2.0,1.0,78.0,82.0
+2700000000,"BSD City, Tangerang",3.0,2.0,1.0,97.0,70.0
+2300000000,"Kelapa Gading, Jakarta Utara",3.0,3.0,1.0,84.0,87.0
+1100000000,"Bekasi Timur, Bekasi",3.0,3.0,1.0,64.0,72.0
+5000000000,"Lebak Bulus, Jakarta Selatan",4.0,3.0,,240.0,147.0
+1380000000,"Bintaro, Tangerang Selatan",3.0,4.0,1.0,71.0,78.0
+6900000000,"Cilandak, Jakarta Selatan",4.0,4.0,2.0,76.0,375.0
+41000000000,"Menteng, Jakarta Pusat",4.0,4.0,,586.0,750.0
+55000000000,"Menteng, Jakarta Pusat",7.0,5.0,,1195.0,1195.0
+55000000000,"Menteng, Jakarta Pusat",4.0,,4.0,629.0,800.0
+1580000000,"Duren Sawit, Jakarta Timur",3.0,2.0,1.0,90.0,58.0
+6100000000,"BSD, Tangerang Selatan",4.0,3.0,2.0,200.0,200.0
+4900000000,"Batununggal, Bandung",4.0,3.0,2.0,176.0,172.0
+800000000,"Cipondoh, Tangerang",2.0,2.0,1.0,121.0,80.0
+4600000000,"Gading Serpong, Tangerang",4.0,3.0,2.0,,
+6500000000,"Sentul City, Bogor",5.0,3.0,4.0,565.0,250.0
+4000000000,"Sentul City, Bogor",4.0,4.0,2.0,450.0,400.0
+1790000000,"Cisauk, Tangerang",3.0,3.0,2.0,98.0,150.0
+2200000000,"BSD City, Tangerang",3.0,3.0,1.0,66.0,95.0
+1800000000,"Cibubur, Jakarta Timur",2.0,2.0,1.0,96.0,79.0
+3800000000,"Sunter, Jakarta Utara",4.0,4.0,1.0,86.0,185.0
+5000000000,"Sunter, Jakarta Utara",4.0,3.0,2.0,154.0,250.0
+2800000000,"Jati Asih, Bekasi",3.0,3.0,1.0,120.0,140.0
+6900000000,"Kebayoran Baru, Jakarta Selatan",4.0,4.0,2.0,76.0,375.0
+3700000000,"Grand Wisata, Bekasi",6.0,5.0,1.0,175.0,160.0
+1060000000,"Lippo Cikarang, Cikarang",2.0,1.0,1.0,70.0,42.0
+1300000000,"Limo, Depok",3.0,2.0,1.0,60.0,60.0
+3000000000,"BSD City, Tangerang",3.0,3.0,,98.0,118.0
+30000000000,"Kemang, Jakarta Selatan",4.0,3.0,6.0,1580.0,700.0
+42000000000,"Cipete, Jakarta Selatan",5.0,5.0,6.0,1925.0,900.0
+2800000000,"BSD City, Tangerang",4.0,3.0,1.0,90.0,90.0
+1600000000,"Summarecon Bekasi, Bekasi",4.0,2.0,2.0,66.0,76.0
+1700000000,"Summarecon Bekasi, Bekasi",2.0,2.0,1.0,91.0,65.0
+2350000000,"Summarecon Bekasi, Bekasi",3.0,3.0,1.0,119.0,200.0
+1900000000,"Summarecon Bekasi, Bekasi",3.0,3.0,1.0,91.0,84.0
+1350000000,"Summarecon Bekasi, Bekasi",2.0,2.0,1.0,66.0,69.0
+1700000000,"Grand Wisata, Bekasi",4.0,2.0,2.0,98.0,85.0
+3750000000,"Summarecon Bekasi, Bekasi",4.0,3.0,2.0,130.0,177.0
+13500000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,4.0,,260.0,260.0
+2500000000,"Kelapa Gading, Jakarta Utara",3.0,3.0,1.0,5.0,180.0
+4200000000,"Citraland, Surabaya",,4.0,2.0,205.0,260.0
+1400000000,"Kota Wisata, Bogor",2.0,2.0,1.0,72.0,70.0
+2800000000,"Summarecon Bekasi, Bekasi",4.0,3.0,2.0,117.0,133.0
+2200000000,"Batununggal, Bandung",3.0,2.0,1.0,180.0,160.0
+3300000000,"Tebet, Jakarta Selatan",4.0,3.0,1.0,135.0,145.0
+765000000,"Tanah Baru, Depok",2.0,1.0,1.0,72.0,45.0
+570000000,"Margonda, Depok",2.0,1.0,1.0,55.0,40.0
+10000000000,"Golf Island, Jakarta Utara",3.0,4.0,2.0,8.0,300.0
+458000000,"Utan Kayu, Jakarta Timur",2.0,2.0,,21.0,41.0
+1100000000,"Cibitung, Bekasi",3.0,3.0,1.0,64.0,72.0
+3750000000,"Metland Puri, Jakarta Barat",4.0,3.0,,200.0,175.0
+1300000000,"Jatibening, Bekasi",2.0,2.0,1.0,60.0,54.0
+1500000000,"Summarecon Bandung, Bandung",2.0,1.0,1.0,90.0,73.0
+1200000000,"Percetakan Negara, Jakarta Pusat",2.0,2.0,1.0,39.0,70.0
+160000000000,"Senopati, Jakarta Selatan",6.0,6.0,5.0,1120.0,800.0
+1650000000,"Legenda Wisata, Bogor",3.0,2.0,1.0,152.0,152.0
+1800000000,"Kota Baru Parahyangan, Bandung",4.0,3.0,1.0,128.0,86.0
+2700000000,"Kota Wisata, Bogor",4.0,3.0,2.0,2.0,380.0
+4550000000,"Sektor 9-Bintaro, Tangerang Selatan",4.0,4.0,2.0,180.0,285.0
+3200000000,"Pondok Kelapa, Jakarta Timur",3.0,3.0,2.0,180.0,159.0
+3500000000,"Taman Galaxy, Bekasi",7.0,6.0,2.0,179.0,420.0
+1900000000,"Summarecon Bogor, Bogor",4.0,3.0,1.0,120.0,148.0
+1100000000,"Cikarang Selatan, Bekasi",3.0,3.0,1.0,64.0,72.0
+1300000000,"Cipondoh, Tangerang",2.0,1.0,1.0,60.0,70.0
+893000000,"Johar Baru, Jakarta Pusat",2.0,2.0,1.0,38.0,62.0
+1150000000,"Jatibening, Bekasi",3.0,3.0,2.0,78.0,96.0
+25500000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,5.0,2.0,15.0,900.0
+21000000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,4.0,2.0,450.0,450.0
+6000000000,"Cilandak, Jakarta Selatan",5.0,2.0,3.0,200.0,300.0
+9400000000,"Pantai Indah Kapuk, Jakarta Utara",3.0,3.0,2.0,250.0,315.0
+3700000000,"Grand Wisata, Bekasi",6.0,5.0,1.0,175.0,160.0
+13000000000,"Pantai Indah Kapuk 2, Jakarta Utara",4.0,4.0,2.0,450.0,600.0
+4200000000,"Pantai Indah Kapuk 2, Jakarta Utara",3.0,3.0,,120.0,179.0
+1900000000,"Cempaka Putih, Jakarta Pusat",3.0,3.0,1.0,62.0,84.0
+1420000000,"Wiyung, Surabaya",3.0,2.0,1.0,158.0,100.0
+3400000000,"Tebet, Jakarta Selatan",6.0,4.0,1.0,178.0,200.0
+1950000000,"Tebet, Jakarta Selatan",4.0,3.0,1.0,73.0,180.0
+8900000000,"Tebet, Jakarta Selatan",248.0,237.0,1.0,248.0,327.0
+2450000000,"Meruya, Jakarta Barat",4.0,4.0,1.0,2.0,153.0
+2250000000,"Jimbaran, Badung",3.0,4.0,1.0,90.0,90.0
+1850000000,"Duri Kepa, Jakarta Barat",4.0,4.0,1.0,60.0,120.0
+1450000000,"Tebet, Jakarta Selatan",5.0,2.0,1.0,65.0,100.0
+14500000000,"Permata Buana, Jakarta Barat",4.0,3.0,2.0,200.0,525.0
+1300000000,"Cempaka Putih, Jakarta Pusat",3.0,3.0,1.0,42.0,77.0
+510000000,"Cempaka Putih, Jakarta Pusat",2.0,2.0,,24.0,38.0
+7200000000,"Kelapa Gading, Jakarta Utara",4.0,3.0,2.0,188.0,220.0
+6900000000,"Kelapa Gading, Jakarta Utara",4.0,3.0,1.0,180.0,350.0
+7300000000,"Sunter, Jakarta Utara",6.0,4.0,2.0,194.0,400.0
+6150000000,"BSD, Tangerang Selatan",7.0,5.0,2.0,380.0,323.0
+1350000000,"Buah Batu, Bandung",4.0,2.0,1.0,90.0,145.0
+3650000000,"Kelapa Gading, Jakarta Utara",4.0,3.0,2.0,180.0,300.0
+3900000000,"Kelapa Gading, Jakarta Utara",3.0,3.0,2.0,200.0,250.0
+1450000000,"Denpasar Barat, Denpasar",3.0,3.0,1.0,60.0,100.0
+2200000000,"Jimbaran, Badung",4.0,3.0,1.0,118.0,160.0
+1250000000,"Denpasar Barat, Denpasar",3.0,2.0,1.0,55.0,77.0
+1750000000,"Jimbaran, Badung",3.0,3.0,1.0,81.0,115.0
+1600000000,"Jimbaran, Badung",3.0,3.0,1.0,100.0,85.0
+7000000000,"Meruya, Jakarta Barat",5.0,4.0,3.0,,330.0
+38000000000,"Kebayoran Baru, Jakarta Selatan",6.0,6.0,6.0,863.0,1350.0
+6800000000,"BSD The Icon, Tangerang",4.0,4.0,2.0,221.0,221.0
+3500000000,"Meruya, Jakarta Barat",4.0,2.0,2.0,2.0,2.0
+4990000000,"Meruya, Jakarta Barat",4.0,3.0,2.0,11620.0,11620.0
+3950000000,"Meruya, Jakarta Barat",4.0,2.0,1.0,10.0,10.0
+53000000000,"Kebayoran Baru, Jakarta Selatan",5.0,3.0,5.0,726.0,564.0
+4099999999,"Meruya, Jakarta Barat",4.0,4.0,1.0,250.0,280.0
+3850000000,"Green Lake City, Jakarta Barat",4.0,3.0,1.0,160.0,150.0
+4300000000,"Meruya, Jakarta Barat",2.0,2.0,1.0,250.0,150.0
+2890000000,"Batununggal, Bandung",3.0,3.0,2.0,2.0,2.0
+3990000000,"Meruya, Jakarta Barat",5.0,3.0,3.0,250.0,400.0
+8900000000,"Meruya, Jakarta Barat",5.0,5.0,2.0,305.0,350.0
+3700000000,"Meruya, Jakarta Barat",4.0,4.0,2.0,250.0,380.0
+5900000000,"Daan Mogot, Jakarta Barat",6.0,4.0,2.0,204.0,550.0
+3600000000,"Batununggal, Bandung",3.0,3.0,1.0,2.0,2.0
+4490000000,"Citraland, Surabaya",5.0,4.0,1.0,238.0,350.0
+15000000000,"Cilandak, Jakarta Selatan",4.0,5.0,4.0,438.0,550.0
+12000000000,"Kebayoran Lama, Jakarta Selatan",5.0,3.0,3.0,509.0,400.0
+1500000000,"Cempaka Putih, Jakarta Pusat",3.0,3.0,1.0,48.0,78.0
+700000000,"Gading Serpong, Tangerang",3.0,1.0,1.0,60.0,38.0
+749000000,"Pamulang, Tangerang Selatan",3.0,1.0,,159.0,80.0
+2300000000,"BSD City, Tangerang",3.0,2.0,1.0,70.0,80.0
+2600000000,"Buah Batu, Bandung",5.0,2.0,2.0,239.0,239.0
+2500000000,"Nusa Dua, Badung",3.0,2.0,1.0,183.0,115.0
+4850000000,"Sunter, Jakarta Utara",5.0,5.0,2.0,154.0,320.0
+5200000000,"Sunter, Jakarta Utara",4.0,3.0,2.0,200.0,375.0
+973000000,"Cakung, Jakarta Timur",3.0,3.0,2.0,50.0,57.0
+7800000000,"Alam Sutera, Tangerang",5.0,5.0,5.0,502.0,392.0
+3300000000,"BSD, Tangerang",5.0,5.0,2.0,96.0,96.0
+4400000000,"Permata Buana, Jakarta Barat",3.0,3.0,1.0,2.0,2.0
+12500000000,"BSD, Tangerang Selatan",6.0,8.0,2.0,220.0,220.0
+50000000000,"BSD, Tangerang Selatan",6.0,6.0,4.0,779.0,779.0
+6500000000,"BSD, Tangerang Selatan",5.0,6.0,3.0,153.0,153.0
+2750000000,"Alam Sutera, Tangerang",4.0,3.0,2.0,250.0,160.0
+12000000000,"BSD, Tangerang",6.0,6.0,4.0,230.0,370.0
+26000000000,"BSD, Tangerang Selatan",5.0,5.0,3.0,550.0,550.0
+18400000000,"Alam Sutera, Tangerang",7.0,8.0,7.0,899.0,1600.0
+2480000000,"Meruya, Jakarta Barat",3.0,3.0,1.0,125.0,168.0
+2500000000,"Meruya, Jakarta Barat",3.0,3.0,1.0,125.0,130.0
+2600000000,"Meruya, Jakarta Barat",3.0,3.0,2.0,112.0,160.0
+21000000000,"Pondok Indah, Jakarta Selatan",5.0,4.0,,353.0,700.0
+3500000000,"Gading Serpong, Tangerang",3.0,3.0,2.0,126.0,126.0
+1500000000,"Pantai Indah Kapuk 2, Jakarta Utara",2.0,2.0,1.0,45.0,62.0
+1350000000,"Tanjung Duren, Jakarta Barat",4.0,3.0,,8128169168.0,63.0
+1450000000,"Tanjung Duren, Jakarta Barat",3.0,2.0,,8128169168.0,100.0
+3400000000,"Pantai Indah Kapuk 2, Jakarta Utara",3.0,3.0,2.0,2.0,2.0
+2100000000,"Pantai Indah Kapuk 2, Jakarta Utara",4.0,3.0,2.0,50.0,123.0
+2440000000,"Pantai Indah Kapuk 2, Jakarta Utara",4.0,3.0,2.0,60.0,138.0
+12700000000,"Pantai Indah Kapuk, Jakarta Utara",5.0,4.0,2.0,2.0,2.0
+3600000000,"Pantai Indah Kapuk 2, Jakarta Utara",4.0,3.0,2.0,100.0,142.0
+3350000000,"Green Lake City, Jakarta Barat",3.0,3.0,2.0,144.0,175.0
+2600000000,"Jelambar, Jakarta Barat",2.0,3.0,,8128169168.0,210.0
+375000000,"Sidoarjo, Sidoarjo",2.0,1.0,1.0,72.0,36.0
+1400000000,"Jagakarsa, Jakarta Selatan",3.0,3.0,1.0,60.0,110.0
+2950000000,"Jagakarsa, Jakarta Selatan",4.0,5.0,2.0,155.0,200.0
+990000000,"BSD City, Tangerang",2.0,2.0,1.0,50.0,58.0
+5000000000,"Tapos, Depok",4.0,4.0,2.0,0.54,0.54
+2800000000,"Cibubur, Jakarta Timur",3.0,3.0,1.0,120.0,140.0
+3700000000,"Cilandak, Jakarta Selatan",3.0,2.0,1.0,143.0,250.0
+12500000000,"BSD, Tangerang Selatan",6.0,8.0,4.0,220.0,398.0
+8210000000,"Gading Serpong, Tangerang",4.0,3.0,2.0,216.0,283.0
+16000000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,4.0,4.0,295.0,400.0
+7200000000,"Gading Serpong, Tangerang",,,2.0,338.0,176.0
+9500000000,"Alam Sutera, Tangerang",4.0,4.0,,350.0,450.0
+1200000000,"Gading Serpong, Tangerang",3.0,1.0,,98.0,70.0
+9100000000,"Bintaro, Jakarta Selatan",6.0,3.0,2.0,735.0,286.0
+4800000000,"Pesanggrahan, Jakarta Selatan",5.0,2.0,1.0,300.0,200.0
+2000000000,"BSD, Tangerang Selatan",4.0,3.0,1.0,7.0,92.0
+1500000000,"Gading Serpong, Tangerang",2.0,2.0,1.0,63.0,70.0
+3800000000,"Tebet, Jakarta Selatan",2.0,1.0,1.0,151.0,30.0
+32500000000,"Kemang, Jakarta Selatan",5.0,4.0,10.0,1636.0,1100.0
+48000000000,"Kemang, Jakarta Selatan",1.0,1.0,20.0,5500.0,1000.0
+12500000000,"Cipete, Jakarta Selatan",4.0,4.0,4.0,500.0,400.0
+18000000000,"Kemang, Jakarta Selatan",4.0,3.0,2.0,986.0,500.0
+33000000000,"Kemang, Jakarta Selatan",5.0,4.0,5.0,1419.0,800.0
+3750000000,"Alam Sutera, Tangerang",,5.0,4.0,200.0,200.0
+7000000000,"Jagakarsa, Jakarta Selatan",4.0,3.0,4.0,1006.0,600.0
+14000000000,"Cipete, Jakarta Selatan",5.0,7.0,4.0,518.0,450.0
+1900000000,"Jatibening, Bekasi",3.0,3.0,2.0,138.0,144.0
+2750000000,"Kelapa Gading, Jakarta Utara",5.0,3.0,1.0,165.0,235.0
+2950000000,"Bintaro, Jakarta Selatan",4.0,3.0,1.0,106.0,128.0
+3500000000,"Bintaro, Jakarta Selatan",4.0,4.0,2.0,221.0,230.0
+6800000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,4.0,,200.0,320.0
+4650000000,"Serpong, Tangerang Selatan",5.0,4.0,2.0,220.0,220.0
+1900000000,"Bintaro, Tangerang Selatan",3.0,3.0,2.0,105.0,140.0
+2400000000,"Bintaro, Tangerang Selatan",4.0,2.0,2.0,,
+1450000000,"Bintaro, Tangerang Selatan",3.0,3.0,1.0,1.5,1.5
+3380000000,"Pantai Indah Kapuk, Jakarta Utara",3.0,4.0,1.0,75.0,160.0
+1300000000,"Green Lake City, Jakarta Barat",2.0,1.0,1.0,4.0,87.0
+12900000000,"Green Lake City, Jakarta Barat",5.0,5.0,2.0,250.0,550.0
+1100000000,"Gading Serpong, Tangerang",3.0,2.0,1.0,53.0,60.0
+36000000000,"Pantai Indah Kapuk, Jakarta Utara",5.0,5.0,4.0,2.0,2.0
+5700000000,"Green Lake City, Jakarta Barat",4.0,3.0,2.0,269.0,221.0
+3800000000,"Green Lake City, Jakarta Barat",3.0,3.0,2.0,144.0,157.0
+799000000,"Citraland, Surabaya",2.0,1.0,1.0,84.0,84.0
+12000000000,"Bintaro, Tangerang Selatan",4.0,4.0,2.0,324.0,350.0
+55000000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,9.0,2.0,600.0,1300.0
+1400000000,"Pantai Indah Kapuk 2, Jakarta Utara",2.0,2.0,2.0,45.0,
+2250000000,"Gading Serpong, Tangerang",3.0,2.0,,128.0,98.0
+550000000,"Suvarna Sutera, Tangerang",2.0,1.0,1.0,,
+1400000000,"Jagakarsa, Jakarta Selatan",3.0,3.0,1.0,75.0,140.0
+1400000000,"Jelambar, Jakarta Barat",2.0,3.0,,8128169168.0,90.0
+7700000000,"Tebet, Jakarta Selatan",5.0,5.0,3.0,400.0,500.0
+28000000000,"Kemang, Jakarta Selatan",5.0,4.0,4.0,1000.0,1400.0
+4200000000,"Gading Serpong, Tangerang",4.0,3.0,2.0,161.5,161.5
+2450000000,"Pantai Indah Kapuk 2, Jakarta Utara",3.0,3.0,1.0,90.0,6.0
+2900000000,"Citraland, Surabaya",4.0,3.0,2.0,2.0,2.0
+2000000000,"Lebak Bulus, Jakarta Selatan",4.0,3.0,2.0,120.0,129.0
+9500000000,"Pondok Indah, Jakarta Selatan",3.0,3.0,5.0,300.0,400.0
+6950000000,"Pondok Indah, Jakarta Selatan",4.0,3.0,1.0,200.0,250.0
+5250000000,"Sektor 9-Bintaro, Tangerang Selatan",4.0,3.0,,2.0,2.0
+4900000000,"Bintaro, Jakarta Selatan",4.0,3.0,1.0,180.0,250.0
+7400000000,"Sektor 9-Bintaro, Tangerang Selatan",4.0,4.0,1.0,203.0,203.0
+19500000000,"Kebayoran Baru, Jakarta Selatan",7.0,5.0,4.0,382.0,500.0
+1150000000,"Ciputat, Tangerang Selatan",5.0,3.0,1.0,144.0,200.0
+2600000000,"Muara Karang, Jakarta Utara",3.0,3.0,1.0,3.5,200.0
+3300000000,"Meruya, Jakarta Barat",3.0,3.0,2.0,2.25,198.0
+2200000000,"Ciputat, Tangerang Selatan",4.0,5.0,2.0,,
+6200000000,"Bintaro, Tangerang Selatan",4.0,4.0,1.0,221.0,256.0
+1350000000,"Tanjung Duren, Jakarta Barat",4.0,3.0,1.0,3.0,68.0
+1800000000,"Pakuwon City, Surabaya",3.0,2.0,2.0,72.0,72.0
+1950000000,"Jelambar, Jakarta Barat",5.0,3.0,2.0,2.0,138.0
+4800000000,"Jelambar, Jakarta Barat",2.0,4.0,2.0,3.0,438.0
+2300000000,"Jelambar, Jakarta Barat",3.0,3.0,1.0,3.5,138.0
+4600000000,"Bintaro, Tangerang Selatan",3.0,3.0,1.0,112.0,89.0
+2500000000,"Jelambar, Jakarta Barat",5.0,2.0,2.0,2.5,168.0
+1600000000,"Jelambar, Jakarta Barat",3.0,2.0,1.0,3.0,128.0
+26000000000,"BSD, Tangerang Selatan",5.0,5.0,3.0,550.0,550.0
+5300000000,"Kelapa Gading, Jakarta Utara",5.0,4.0,2.0,200.0,300.0
+13000000000,"BSD, Tangerang",6.0,6.0,2.0,300.0,480.0
+10500000000,"Pantai Indah Kapuk, Jakarta Utara",,3.0,2.0,210.0,210.0
+6800000000,"Puri Indah, Jakarta Barat",3.0,3.0,1.0,200.0,200.0
+1720000000,"Kelapa Gading, Jakarta Utara",3.0,2.0,1.0,75.0,90.0
+4600000000,"Pantai Indah Kapuk, Jakarta Utara",3.0,2.0,1.0,120.0,160.0
+1700000000,"Citra Garden, Jakarta Barat",3.0,3.0,1.0,1.0,100.0
+3300000000,"Cipondoh, Tangerang",3.0,3.0,2.0,8.0,8.0
+2450000000,"Jelambar, Jakarta Barat",2.0,3.0,,8128169168.0,156.0
+1750000000,"Citra Garden, Jakarta Barat",3.0,2.0,2.0,5.0,100.0
+2300000000,"Jelambar, Jakarta Barat",3.0,3.0,,8128169168.0,140.0
+1300000000,"BSD City, Tangerang",2.0,2.0,1.0,40.0,60.0
+1600000000,"Jelambar, Jakarta Barat",3.0,2.0,,8128169168.0,120.0
+2270000000,"Citra Garden, Jakarta Barat",3.0,2.0,1.0,90.0,150.0
+2800000000,"Pantai Indah Kapuk 2, Jakarta Utara",3.0,3.0,2.0,60.0,2.0
+4500000000,"BSD City, Tangerang",4.0,3.0,2.0,160.0,240.0
+6900000000,"Pakubuwono, Jakarta Selatan",4.0,4.0,2.0,76.0,375.0
+1300000000,"Cipondoh, Tangerang",2.0,1.0,1.0,60.0,70.0
+4600000000,"Kelapa Gading, Jakarta Utara",5.0,4.0,2.0,112.0,156.0
+1600000000,"Pejaten Timur, Jakarta Selatan",3.0,3.0,1.0,,112.0
+1700000000,"Taman Kopo Indah, Bandung",2.0,1.0,1.0,82.0,72.0
+6300000000,"BSD City, Tangerang",5.0,5.0,2.0,120.0,232.0
+2200000000,"BSD Eminent, Tangerang",3.0,3.0,1.0,66.0,95.0
+3000000000,"Cawang, Jakarta Timur",5.0,2.0,1.0,155.0,130.0
+4900000000,"Mekar Wangi, Bandung",4.0,3.0,2.0,176.0,172.0
+2300000000,"Summarecon Bekasi, Bekasi",3.0,3.0,1.0,84.0,87.0
+2300000000,"Jakarta Garden City, Jakarta Timur",3.0,3.0,1.0,84.0,87.0
+1600000000,"Pakuwon Indah, Surabaya",3.0,3.0,1.0,55.0,77.0
+1490000000,"Cikarang, Bekasi",2.0,2.0,1.0,78.0,82.0
+2100000000,"Sentul, Bogor",3.0,3.0,1.0,120.0,93.0
+1400000000,"Grand Wisata, Bekasi",4.0,3.0,1.0,,85.0
+4900000000,"Batununggal, Bandung",4.0,3.0,2.0,176.0,172.0
+2800000000,"Jati Asih, Bekasi",3.0,3.0,1.0,120.0,140.0
+1300000000,"Limo, Depok",3.0,2.0,1.0,60.0,60.0
+1500000000,"Bojongsoang, Bandung",2.0,1.0,1.0,90.0,73.0
+328000000,"Batuaji, Tabanan",2.0,1.0,,60.0,60.0
+4099999999,"Pancoran, Jakarta Selatan",3.0,4.0,2.0,136.0,300.0
+4000000000,"BSD Green Cove, Tangerang",4.0,3.0,2.0,9.0,150.0
+1450000000,"Denpasar Barat, Denpasar",3.0,3.0,1.0,60.0,100.0
+65000000000,"Kebayoran Baru, Jakarta Selatan",4.0,5.0,2.0,675.0,1000.0
+1900000000,"Cakung, Jakarta Timur",2.0,2.0,2.0,90.0,76.0
+1080000000,"Harapan Indah, Bekasi",3.0,2.0,2.0,60.0,90.0
+5950000000,"BSD Foresta, Tangerang",4.0,4.0,2.0,203.0,203.0
+6100000000,"BSD The Icon, Tangerang",4.0,4.0,,200.0,200.0
+3500000000,"BSD The Icon, Tangerang",3.0,3.0,2.0,200.0,153.0
+7700000000,"Sunter, Jakarta Utara",6.0,4.0,2.0,198.0,500.0
+1400000000,"Jatibening, Bekasi",4.0,4.0,2.0,105.0,140.0
+1150000000,"Jatibening, Bekasi",3.0,3.0,2.0,78.0,96.0
+1200000000,"Denpasar Selatan, Denpasar",2.0,1.0,1.0,88.0,50.0
+21000000000,"Pantai Indah Kapuk, Jakarta Utara",4.0,4.0,2.0,450.0,450.0
+6000000000,"Cilandak, Jakarta Selatan",5.0,2.0,3.0,200.0,300.0
+3700000000,"Grand Wisata, Bekasi",6.0,5.0,1.0,175.0,160.0
+4200000000,"Pantai Indah Kapuk 2, Jakarta Utara",3.0,3.0,,120.0,179.0
+1900000000,"Cempaka Putih, Jakarta Pusat",3.0,3.0,1.0,62.0,84.0
+1420000000,"Wiyung, Surabaya",3.0,2.0,1.0,158.0,100.0
+3400000000,"Tebet, Jakarta Selatan",6.0,4.0,1.0,178.0,200.0
+1950000000,"Tebet, Jakarta Selatan",4.0,3.0,1.0,73.0,180.0
+8900000000,"Tebet, Jakarta Selatan",248.0,237.0,1.0,248.0,327.0
+2450000000,"Meruya, Jakarta Barat",4.0,4.0,1.0,2.0,153.0
+328000000,"Batuaji, Tabanan",2.0,1.0,,60.0,60.0
+4099999999,"Pancoran, Jakarta Selatan",3.0,4.0,2.0,136.0,300.0
+4000000000,"BSD Green Cove, Tangerang",4.0,3.0,2.0,9.0,150.0
+1450000000,"Denpasar Barat, Denpasar",3.0,3.0,1.0,60.0,100.0
+340000000,"Cinangka, Depok",2.0,1.0,1.0,55.0,36.0
+5300000000,"Kav DKI, Jakarta Barat",4.0,4.0,3.0,375.0,436.0
+1750000000,"Taman Meruya, Jakarta Barat",2.0,2.0,1.0,120.0,90.0
+6500000000,"Green garden, Jakarta Barat",5.0,4.0,2.0,300.0,297.0
+1800000000,"Serpong Regency Melati Mas, Tangerang Selatan",4.0,3.0,1.0,100.0,130.0
+985000000,"Jati Luhur, Bekasi",3.0,2.0,2.0,97.0,80.0
+4000000000,"Surabaya Kota, Surabaya",4.0,3.0,,,
+3700000000,"Jaka Setia, Bekasi",4.0,3.0,2.0,219.0,168.0
+560000000,"Cilodong, Depok",2.0,1.0,1.0,81.0,55.0
+1500000000,"Cinere, Depok",4.0,3.0,1.0,102.0,120.0
+1950000000,"Cengkareng Barat, Jakarta Barat",3.0,3.0,1.0,90.0,125.0
+600000000,"Karang Anyar, Jakarta Pusat",2.0,2.0,1.0,24.0,68.0
+1100000000,"Jatibening, Bekasi",3.0,3.0,1.0,78.0,96.0
+1790000000,"Waru, Sidoarjo",3.0,2.0,2.0,105.0,105.0
+450000000,"Bekasi Kota, Bekasi",2.0,1.0,1.0,54.0,34.0
+910000000,"Karawaci, Tangerang",3.0,2.0,1.0,60.0,60.0
+600000000,"Cisalak, Depok",3.0,2.0,1.0,70.0,70.0
+8700000000,"Taman Grisenda, Jakarta Utara",4.0,4.0,1.0,,
+1100000000,"Jatiwaringin, Bekasi",3.0,2.0,2.0,64.0,80.0
+700000000,"Semarang Timur, Semarang",2.0,1.0,1.0,98.0,98.0
+3950000000,"Ubud, Gianyar",2.0,2.0,1.0,150.0,139.0
+2850000000,"Semanan, Jakarta Barat",4.0,3.0,4.0,161.0,170.0
+550000000,"Suvarna Sutera, Tangerang",2.0,1.0,1.0,,
+2000000000,"Pondok Bambu, Jakarta Timur",4.0,3.0,2.0,162.0,200.0
+2000000000,"Graha Raya Bintaro, Tangerang Selatan",3.0,4.0,,90.0,90.0
+3300000000,"Dukuh Pakis, Surabaya",3.0,2.0,,300.0,240.0
+5950000000,"BSD Foresta, Tangerang",4.0,4.0,2.0,203.0,203.0
+1150000000,"Pondok Gede, Bekasi",3.0,3.0,2.0,78.0,96.0
+1200000000,"Denpasar Selatan, Denpasar",2.0,1.0,1.0,88.0,50.0
+5000000000,"Gading Serpong The Spring, Tangerang",4.0,3.0,2.0,,
+13000000000,"Gandaria, Jakarta Selatan",5.0,5.0,2.0,590.0,775.0
+482000000,"Temon, Kulon Progo",3.0,1.0,,128.0,65.0
+2100000000,"Serpong Villa Melati Mas, Tangerang Selatan",4.0,4.0,2.0,120.0,150.0
+3980000000,"Rancamaya, Bogor",4.0,3.0,1.0,394.0,176.0
+5000000000,"Tapos, Depok",4.0,4.0,2.0,0.54,0.54
+1800000000,"Cijantung, Jakarta Timur",3.0,2.0,2.0,0.6,0.6
+2200000000,"Bandung Kota, Bandung",3.0,2.0,1.0,183.0,93.0
+10500000000,"Pontianak Kota, Pontianak",8.0,7.0,8.0,525.0,570.0
+1100000000,"Cibitung, Bekasi",3.0,3.0,1.0,64.0,72.0
+3000000000,"BSD Vanya Park, Tangerang",3.0,3.0,1.0,98.0,118.0
+393000000,"Krian, Sidoarjo",2.0,1.0,1.0,72.0,36.0
+166000000,"Mojokerto, Mojokerto",2.0,1.0,1.0,60.0,36.0
+4000000000,"Summarecon Bandung, Bandung",4.0,4.0,2.0,150.0,226.0
+900000000,"Kelapa Dua, Depok",3.0,2.0,1.0,58.0,72.0
+1300000000,"Bojong Sari, Depok",3.0,2.0,1.0,60.0,60.0
+294000000,"Tajur Halang, Bogor",2.0,1.0,1.0,60.0,53.0
+2750000000,"Cirendeu, Jakarta Selatan",3.0,4.0,2.0,315.0,250.0
+10000000000,"Kramat Jati, Jakarta Timur",4.0,4.0,5.0,400.0,350.0
+800000000,"Bekasi, Bekasi",2.0,1.0,1.0,60.0,31.0
+2100000000,"Klender, Jakarta Timur",3.0,3.0,2.0,90.0,110.0
+6000000000,"Kebon Jeruk, Jakarta Barat",4.0,3.0,1.0,300.0,300.0
+5600000000,"Sunrise Garden, Jakarta Barat",4.0,3.0,1.0,238.0,350.0
+1600000000,"Cibubur, Bekasi",3.0,2.0,1.0,72.0,82.0
+5650000000,"Intercon, Jakarta Barat",4.0,3.0,1.0,,
+2600000000,"Manyar, Surabaya",3.0,3.0,2.0,91.0,120.0
+395000000,"Citayam, Depok",2.0,1.0,1.0,72.0,36.0
+1300000000,"Tangerang Kota, Tangerang",2.0,1.0,1.0,60.0,70.0
+331000000,"Moyudan, Sleman",2.0,1.0,1.0,86.0,50.0
+224000000,"Karawang Timur, Karawang",1.0,1.0,,72.0,38.0
+786000000,"Balikpapan Selatan, Balikpapan",1.0,1.0,,143.0,45.0
+572000000,"Medan Denai, Medan",1.0,1.0,,119.0,53.0
+910000000,"Cilincing, Jakarta Utara",1.0,1.0,,162.0,124.0
+665000000,"Rungkut, Surabaya",3.0,1.0,1.0,70.0,50.0
+3500000000,"Kota Baru Parahyangan, Bandung",3.0,2.0,3.0,165.0,120.0
+570000000,"Tabanan, Tabanan",,,1.0,56.0,60.0
+950000000,"Banyuwangi, Banyuwangi",3.0,1.0,1.0,190.0,140.0
+875000000,"Jonggol, Bogor",3.0,2.0,4.0,210.0,150.0
+466000000,"Johar Baru, Jakarta Pusat",2.0,2.0,,23.0,39.0
+851000000,"Percetakan Negara, Jakarta Pusat",2.0,2.0,1.0,25.0,49.0
+9800000000,"Pajajaran, Bogor",8.0,7.0,5.0,582.0,243.0
+1690000000,"Bogor Selatan, Bogor",3.0,3.0,2.0,90.0,100.0
+9000000000,"Ketewel, Gianyar",4.0,3.0,5.0,1500.0,500.0
+9100000000,"Seminyak, Badung",3.0,3.0,1.0,155.0,195.0
+2100000000,"Pasteur, Bandung",4.0,3.0,2.0,84.0,92.0
+6730000000,"Harjamukti, Depok",4.0,3.0,4.0,595.0,645.0
+13500000000,"Dago, Bandung",5.0,4.0,2.0,336.0,430.0
