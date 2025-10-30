@@ -4,7 +4,22 @@ import Calculation from './pages/Calculation'
 import Result from './pages/Result'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import CreateListing from './pages/CreateListing'
+import MyListings from './pages/MyListings'
 import './App.css'
+
+const isLoggedIn = () => {
+  try {
+    return !!localStorage.getItem('propai:user')
+  } catch {
+    return false
+  }
+}
+
+const Protected = ({ children }) => {
+  if (!isLoggedIn()) return <Navigate to="/login" replace />
+  return children
+}
 
 function App() {
   return (
@@ -14,6 +29,8 @@ function App() {
       <Route path="/result" element={<Result />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/create-listing" element={<Protected><CreateListing /></Protected>} />
+      <Route path="/my-listings" element={<Protected><MyListings /></Protected>} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   )

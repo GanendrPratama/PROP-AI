@@ -1,9 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
+    const navigate = useNavigate();
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        try {
+            const raw = localStorage.getItem('propai:user');
+            setUser(raw ? JSON.parse(raw) : null);
+        } catch {
+            setUser(null);
+        }
+    }, []);
+
+    const onLogout = () => {
+        try { localStorage.removeItem('propai:user'); } catch {}
+        setUser(null);
+        navigate('/');
+    };
     return (
-    <nav className="w-full bg-[#395192] text-white p-4 shadow-md">
+    <nav className="w-screen bg-[#395192] text-white p-4 shadow-md">
             <div className="container mx-auto flex justify-between items-center">
                 {/* Logo */}
                 <Link to="/">
@@ -20,19 +37,38 @@ const NavBar = () => {
                     <Link to="/calculation" className="text-lg hover:text-[#CCCCCC] transition duration-200">
                         Calculate
                     </Link>
+                    {user && (
+                        <>
+                            <Link to="/create-listing" className="text-lg hover:text-[#CCCCCC] transition duration-200">
+                                Create Listing
+                            </Link>
+                            <Link to="/my-listings" className="text-lg hover:text-[#CCCCCC] transition duration-200">
+                                My Listings
+                            </Link>
+                        </>
+                    )}
                 </div>
 
                 {/* Right Links */}
                 <div className="flex gap-4 items-center">
-                    <Link to="/login" className="text-lg hover:text-[#CCCCCC] transition duration-200">
-                        Login
-                    </Link>
-                    <Link
-                        to="/register"
-                        className="text-lg bg-[#8F333E] text-white font-semibold px-5 py-2 rounded-md hover:opacity-90 transition duration-200"
-                    >
-                        Sign Up
-                    </Link>
+                    {!user ? (
+                        <>
+                            <Link to="/login" className="text-lg hover:text-[#CCCCCC] transition duration-200">
+                                Login
+                            </Link>
+                            <Link
+                                to="/register"
+                                className="text-lg bg-[#8F333E] text-white font-semibold px-5 py-2 rounded-md hover:opacity-90 transition duration-200"
+                            >
+                                Sign Up
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <span className="hidden sm:inline text-sm text-gray-200">{user.email || user.name}</span>
+                            <button onClick={onLogout} className="text-lg bg-[#8F333E] text-white font-semibold px-4 py-1.5 rounded-md hover:opacity-90 transition duration-200">Logout</button>
+                        </>
+                    )}
                 </div>
             </div>
         </nav>

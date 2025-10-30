@@ -92,16 +92,16 @@ export default function Calculation() {
 	}
 
 	return (
-		<div className="flex flex-col min-h-screen bg-gray-50">
+		<div className="flex flex-col min-h-screen bg-gray-50 w-screen">
 			<NavBar />
 
 			<main className="flex-1">
-				<section className="py-10 px-4">
-					<div className="container mx-auto max-w-5xl bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:p-8">
+				<section className="py-6 md:py-10 px-0">
+					<div className="w-full bg-white rounded-none md:rounded-xl shadow-sm border-t md:border border-gray-200 p-4 sm:p-6 md:p-8">
 						<h1 className="text-3xl font-bold text-[#395192] mb-2">Predict Your Property's Value</h1>
 						<p className="text-gray-600 mb-6">Fill in your property details below. Fields marked with * are required.</p>
 
-						<form onSubmit={onSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<form onSubmit={onSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 							{/* Location */}
 							<div className="md:col-span-2">
 								<label className="block text-sm font-medium text-gray-700 mb-1">Location (City/Neighborhood) *</label>

@@ -38,7 +38,7 @@ export default function Result() {
 
 	if (!result) {
 		return (
-			<div className="flex flex-col min-h-screen bg-gray-50">
+			<div className="flex flex-col min-h-screen bg-gray-50 w-screen">
 				<NavBar />
 				<main className="flex-1 flex items-center justify-center">
 					<div className="text-center p-8 bg-white border rounded-lg shadow-sm">
@@ -59,8 +59,8 @@ export default function Result() {
 		<div className="flex flex-col min-h-screen bg-gray-50">
 			<NavBar />
 			<main className="flex-1">
-				<section className="py-10 px-4">
-					<div className="container mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-3 gap-6">
+				<section className="py-6 md:py-10 px-4 md:px-6">
+					<div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6">
 						{/* Summary Card */}
 						<div className="lg:col-span-2 bg-white border rounded-xl shadow-sm p-6">
 							<h1 className="text-2xl font-bold text-[#395192] mb-3">Estimated Property Price</h1>

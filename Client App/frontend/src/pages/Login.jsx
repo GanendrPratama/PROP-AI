@@ -33,8 +33,8 @@ export default function Login() {
 	return (
 		<div className="flex flex-col min-h-screen bg-gray-50">
 			<NavBar />
-			<main className="flex-1 flex items-center justify-center px-4 py-10">
-				<div className="w-full max-w-md bg-white border rounded-xl shadow-sm p-6">
+			<main className="flex-1 px-0 py-6 md:py-10">
+				<div className="w-full bg-white border-t md:border rounded-none md:rounded-none shadow-sm p-6">
 					<h1 className="text-2xl font-bold text-[#395192] mb-1">Welcome back</h1>
 					<p className="text-gray-600 mb-6">Sign in to your account</p>
 					<form onSubmit={onSubmit} className="space-y-4">

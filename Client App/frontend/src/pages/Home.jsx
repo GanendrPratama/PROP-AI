@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../NavBar';
 import Footer from '../Footer';
+import { getUser } from '../utils/auth';
+import { formatCurrencyIDR } from '../utils/format';
 
 // --- Hero Section ---
 const HeroSection = () => {
@@ -178,14 +180,131 @@ const CTASection = () => {
 
 // --- Main Home Component ---
 export default function Home() {
+    const [user, setUser] = useState(null);
+    const [listings, setListings] = useState([]);
+
+    // Search state
+    const [q, setQ] = useState('');
+    const [minPrice, setMinPrice] = useState('');
+    const [maxPrice, setMaxPrice] = useState('');
+    const [minBedrooms, setMinBedrooms] = useState('');
+    const [location, setLocation] = useState('');
+
+    useEffect(() => {
+        setUser(getUser());
+        try {
+            const raw = localStorage.getItem('propai:listings');
+            const arr = raw ? JSON.parse(raw) : [];
+            // newest first
+            arr.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+            setListings(arr);
+        } catch {
+            setListings([]);
+        }
+    }, []);
+
+    const visibleListings = useMemo(() => {
+        // show other people's ads when logged in; otherwise show all
+        const base = user ? listings.filter((l) => l?.owner?.email !== user?.email) : listings;
+
+        return base.filter((l) => {
+            const title = (l.title || '').toLowerCase();
+            const desc = (l.description || '').toLowerCase();
+            const loc = (l.specs?.location || '').toLowerCase();
+            const price = Number(l.price || 0);
+            const beds = Number(l.specs?.bedrooms || 0);
+
+            if (q && !(title.includes(q.toLowerCase()) || desc.includes(q.toLowerCase()) || loc.includes(q.toLowerCase()))) {
+                return false;
+            }
+            if (location && !loc.includes(location.toLowerCase())) return false;
+            if (minPrice && price < Number(minPrice)) return false;
+            if (maxPrice && price > Number(maxPrice)) return false;
+            if (minBedrooms && beds < Number(minBedrooms)) return false;
+            return true;
+        });
+    }, [user, listings, q, minPrice, maxPrice, minBedrooms, location]);
+
     return (
-        <div className="flex flex-col min-h-screen font-sans">
+        <div className="flex flex-col min-h-screen font-sans w-screen">
             <NavBar />
             <HeroSection />
             <FeaturesSection />
             <HowItWorksSection />
+            <MarketplaceSection
+                user={user}
+                listings={visibleListings}
+                q={q}
+                setQ={setQ}
+                minPrice={minPrice}
+                setMinPrice={setMinPrice}
+                maxPrice={maxPrice}
+                setMaxPrice={setMaxPrice}
+                minBedrooms={minBedrooms}
+                setMinBedrooms={setMinBedrooms}
+                location={location}
+                setLocation={setLocation}
+            />
             <CTASection />
             <Footer />
         </div>
     );
 }
+
+// --- Marketplace (Listings) Section ---
+const Card = ({ item }) => (
+    <div className="bg-white border rounded-xl shadow-sm p-4 flex flex-col">
+        <h3 className="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
+        <p className="text-sm text-gray-600 line-clamp-2 mb-3">{item.description || '—'}</p>
+        <div className="text-sm text-gray-700 mb-1"><span className="text-gray-500">Location:</span> {item.specs?.location}</div>
+        <div className="text-sm text-gray-700 mb-1"><span className="text-gray-500">Bedrooms:</span> {item.specs?.bedrooms ?? '—'}</div>
+        {item.suggested ? (
+            <p className="text-xs text-gray-500">AI suggested: {formatCurrencyIDR(item.suggested)}</p>
+        ) : null}
+        <p className="text-base font-bold text-gray-900 mt-1">Price: {formatCurrencyIDR(item.price)}</p>
+        {item.owner?.email ? (
+            <p className="text-xs text-gray-500 mt-2">Posted by {item.owner.name || item.owner.email}</p>
+        ) : null}
+    </div>
+);
+
+const MarketplaceSection = ({ user, listings, q, setQ, minPrice, setMinPrice, maxPrice, setMaxPrice, minBedrooms, setMinBedrooms, location, setLocation }) => {
+    return (
+        <section className="py-16 px-4 bg-[#f5f7fb]">
+            <div className="container mx-auto max-w-7xl">
+                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+                    <div>
+                        <h2 className="text-3xl font-bold text-[#395192]">Marketplace</h2>
+                        <p className="text-gray-600">{user ? 'Browse other people\'s listings' : 'Browse public listings'}</p>
+                    </div>
+                    <div className="flex gap-2">
+                        <Link to="/create-listing" className="bg-[#395192] text-white px-4 py-2 rounded-md hover:opacity-90">+ Create Listing</Link>
+                        <Link to="/my-listings" className="border border-[#395192] text-[#395192] px-4 py-2 rounded-md hover:bg-[#e9edf8]">My Listings</Link>
+                    </div>
+                </div>
+
+                {/* Search / Filters */}
+                <div className="bg-white border rounded-xl shadow-sm p-4 md:p-6 mb-6">
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+                        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search title/description/location" className="md:col-span-2 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]" />
+                        <input value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location contains…" className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]" />
+                        <input type="number" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} placeholder="Min Price" className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]" />
+                        <input type="number" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} placeholder="Max Price" className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]" />
+                        <input type="number" value={minBedrooms} onChange={(e) => setMinBedrooms(e.target.value)} placeholder="Min Bedrooms" className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]" />
+                    </div>
+                </div>
+
+                {/* Listing grid */}
+                {listings.length === 0 ? (
+                    <div className="bg-white border rounded-xl shadow-sm p-6 text-gray-700">No listings found. Try adjusting your filters or create a listing.</div>
+                ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {listings.map((l) => (
+                            <Card key={l.id} item={l} />
+                        ))}
+                    </div>
+                )}
+            </div>
+        </section>
+    );
+};
