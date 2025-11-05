@@ -92,7 +92,7 @@ export default function Calculation() {
 	}
 
 	return (
-		<div className="flex flex-col min-h-screen bg-gray-50 w-screen">
+		<div className="flex flex-col min-h-screen bg-gray-50 w-full">
 			<NavBar />
 
 			<main className="flex-1">

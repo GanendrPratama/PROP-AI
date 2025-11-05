@@ -30,7 +30,7 @@ export default function Register() {
 	}
 
 	return (
-		<div className="flex flex-col min-h-screen bg-gray-50 w-screen">
+		<div className="flex flex-col min-h-screen bg-gray-50 w-full">
 			<NavBar />
 			<main className="flex-1 px-0 py-6 md:py-10">
 				<div className="w-full bg-white border-t md:border rounded-none md:rounded-none shadow-sm p-6">

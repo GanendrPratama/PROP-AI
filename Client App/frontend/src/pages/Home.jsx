@@ -226,7 +226,7 @@ export default function Home() {
     }, [user, listings, q, minPrice, maxPrice, minBedrooms, location]);
 
     return (
-        <div className="flex flex-col min-h-screen font-sans w-screen">
+        <div className="flex flex-col min-h-screen font-sans w-full">
             <NavBar />
             <HeroSection />
             <FeaturesSection />

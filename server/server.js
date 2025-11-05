@@ -1,7 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const { spawn } = require('child_process');
 const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies
+app.use(cors()); // Enable CORS for all routes
 
 const PORT = 8000;
 
@@ -26,7 +28,7 @@ app.post('/predict', (req, res) => {
     }
 
     // --- 2. Call the Python Script ---
-    const pythonExecutable = './model/property/env/bin/python3';
+    const pythonExecutable = './model/property/env/Scripts/python.exe';
     const pythonScript = './model/property/predict_for_api.py';
     
     // Check if the venv python exists
