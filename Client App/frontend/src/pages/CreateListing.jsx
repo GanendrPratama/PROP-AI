@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import NavBar from '../NavBar'
 import Footer from '../Footer'
 import { predictPrice } from '../services/predict'
+import { createHousingAd } from '../services/housingAd'
 import { formatCurrencyIDR } from '../utils/format'
 import { getUser } from '../utils/auth'
 
@@ -12,6 +13,10 @@ export default function CreateListing() {
         title: '',
         description: '',
         location: '',
+        city: '',
+        province: '',
+        address: '',
+        postalCode: '',
         landSize: '',
         buildingArea: '',
         bedrooms: '',
@@ -21,11 +26,13 @@ export default function CreateListing() {
         yearBuilt: '',
         facilitiesText: '',
         listingPrice: '',
+        contactPhone: '',
     })
     const [extras, setExtras] = useState([{ key: '', value: '' }])
     const [errors, setErrors] = useState({})
     const [suggestion, setSuggestion] = useState(null)
     const [loadingSuggest, setLoadingSuggest] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const change = (e) => {
         const { name, value } = e.target
@@ -65,7 +72,7 @@ export default function CreateListing() {
             }, {})
 
         return {
-            location: form.location,
+            location: form.city || form.location,
             landSize: Number(form.landSize),
             buildingArea: Number(form.buildingArea),
             bedrooms: Number(form.bedrooms),
@@ -96,30 +103,64 @@ export default function CreateListing() {
         }
     }
 
-    const submitListing = (e) => {
+    const submitListing = async (e) => {
         e.preventDefault()
         if (!validate()) return
-        const payload = buildPayload()
-        const owner = getUser() || null
-        const listing = {
-            id: Date.now().toString(),
-            title: form.title.trim(),
-            description: form.description.trim(),
-            specs: payload,
-            suggested: suggestion?.estimatedPrice || null,
-            price: Number(form.listingPrice || 0),
-            owner: owner ? { email: owner.email, name: owner.name } : null,
-            createdAt: new Date().toISOString(),
+        
+        const user = getUser()
+        if (!user || !user.user_id) {
+            alert('Please login to create a listing.')
+            navigate('/login')
+            return
         }
+
+        if (!form.contactPhone) {
+            alert('Please provide a contact phone number.')
+            return
+        }
+
+        setLoading(true)
         try {
-            const raw = localStorage.getItem('propai:listings')
-            const arr = raw ? JSON.parse(raw) : []
-            arr.unshift(listing)
-            localStorage.setItem('propai:listings', JSON.stringify(arr))
-            navigate('/my-listings')
-        } catch (e) {
-            console.error(e)
-            alert('Failed to save listing.')
+            const facilities = form.facilitiesText
+                .split(',')
+                .map((s) => s.trim())
+                .filter(Boolean)
+
+            // Prepare housing ad data for backend
+            const adData = {
+                user_id: user.user_id,
+                title: form.title.trim(),
+                description: form.description.trim(),
+                price: Number(form.listingPrice || 0),
+                status: 'active',
+                address: form.address || form.location,
+                city: form.city || form.location,
+                province: form.province || '',
+                postal_code: form.postalCode || '',
+                latitude: null,
+                longitude: null,
+                land_size_sqm: Number(form.landSize),
+                building_size_sqm: Number(form.buildingArea),
+                bedrooms: Number(form.bedrooms),
+                bathrooms: Number(form.bathrooms),
+                garage_capacity: Number(form.garageCapacity || 0),
+                facilities: facilities.join(', '),
+                contact_phone: form.contactPhone
+            }
+
+            const result = await createHousingAd(adData)
+            
+            if (result.success) {
+                alert('Listing created successfully!')
+                navigate('/my-listings')
+            } else {
+                alert(result.message || 'Failed to create listing.')
+            }
+        } catch (err) {
+            console.error(err)
+            alert(err.message || 'Failed to create listing.')
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -156,9 +197,29 @@ export default function CreateListing() {
                             </div>
 
                             <div className="md:col-span-2">
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Location (City/Neighborhood) *</label>
-                                <input type="text" name="location" value={form.location} onChange={change} className={`w-full rounded-md border ${errors.location ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]`} />
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Address *</label>
+                                <input type="text" name="address" value={form.address} onChange={change} placeholder="e.g., Jl. Merdeka No. 123" className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]" />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">City *</label>
+                                <input type="text" name="city" value={form.city} onChange={change} placeholder="e.g., Bandung" className={`w-full rounded-md border ${errors.location ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]`} />
                                 {errors.location ? <p className="text-sm text-red-600 mt-1">{errors.location}</p> : null}
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Province</label>
+                                <input type="text" name="province" value={form.province} onChange={change} placeholder="e.g., Jawa Barat" className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]" />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
+                                <input type="text" name="postalCode" value={form.postalCode} onChange={change} placeholder="e.g., 40123" className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]" />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Contact Phone *</label>
+                                <input type="tel" name="contactPhone" value={form.contactPhone} onChange={change} placeholder="e.g., 08123456789" className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]" required />
                             </div>
 
                             <div>
@@ -227,7 +288,9 @@ export default function CreateListing() {
                                     )}
                                 </div>
                                 <div className="flex items-end">
-                                    <button type="submit" className="w-full md:w-auto bg-[#8F333E] text-white font-semibold px-6 py-2 rounded-md hover:opacity-90">Publish Listing</button>
+                                    <button type="submit" disabled={loading} className="w-full md:w-auto bg-[#8F333E] text-white font-semibold px-6 py-2 rounded-md hover:opacity-90 disabled:opacity-60">
+                                        {loading ? 'Publishing...' : 'Publish Listing'}
+                                    </button>
                                 </div>
                             </div>
                         </form>

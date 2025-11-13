@@ -1,26 +1,59 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { getUser, logout } from './utils/auth';
 
 const NavBar = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
 
+    // Function to update user state from localStorage
+    const updateUserState = () => {
+        const currentUser = getUser();
+        console.log('NavBar: updateUserState called, user:', currentUser);
+        setUser(currentUser);
+    };
+
     useEffect(() => {
-        try {
-            const raw = localStorage.getItem('propai:user');
-            setUser(raw ? JSON.parse(raw) : null);
-        } catch {
-            setUser(null);
-        }
+        console.log('NavBar: useEffect mounted');
+        // Initial load
+        updateUserState();
+
+        // Listen for custom login/logout events
+        const handleLogin = () => {
+            console.log('NavBar: userLoggedIn event received');
+            updateUserState();
+        };
+        const handleLogout = () => {
+            console.log('NavBar: userLoggedOut event received');
+            updateUserState();
+        };
+
+        window.addEventListener('userLoggedIn', handleLogin);
+        window.addEventListener('userLoggedOut', handleLogout);
+
+        // Also listen to storage events (for multi-tab support)
+        const handleStorageChange = (e) => {
+            if (e.key === 'propai:user') {
+                updateUserState();
+            }
+        };
+        window.addEventListener('storage', handleStorageChange);
+
+        // Cleanup
+        return () => {
+            window.removeEventListener('userLoggedIn', handleLogin);
+            window.removeEventListener('userLoggedOut', handleLogout);
+            window.removeEventListener('storage', handleStorageChange);
+        };
     }, []);
 
     const onLogout = () => {
-        try { localStorage.removeItem('propai:user'); } catch {}
+        logout();
         setUser(null);
         navigate('/');
     };
     return (
-    <nav className="w-screen bg-[#395192] text-white p-4 shadow-md">
+    <nav className="w-full bg-[#395192] text-white p-4 shadow-md">
             <div className="container mx-auto flex justify-between items-center">
                 {/* Logo */}
                 <Link to="/">
@@ -39,6 +72,9 @@ const NavBar = () => {
                     </Link>
                     {user && (
                         <>
+                            <Link to="/listings" className="text-lg hover:text-[#CCCCCC] transition duration-200">
+                                Listings
+                            </Link>
                             <Link to="/create-listing" className="text-lg hover:text-[#CCCCCC] transition duration-200">
                                 Create Listing
                             </Link>

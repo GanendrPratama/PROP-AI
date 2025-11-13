@@ -92,7 +92,7 @@ export default function Calculation() {
 	}
 
 	return (
-		<div className="flex flex-col min-h-screen bg-gray-50 w-full">
+		<div className="flex flex-col min-h-screen bg-gray-50 w-screen">
 			<NavBar />
 
 			<main className="flex-1">
@@ -110,7 +110,7 @@ export default function Calculation() {
 									name="location"
 									value={form.location}
 									onChange={handleChange}
-									placeholder="e.g., Bandung - Dago"
+									placeholder="e.g., Beji, Depok"
 									className={`w-full rounded-md border ${errors.location ? 'border-red-500' : 'border-gray-300'} px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]`}
 								/>
 								{errors.location && <p className="text-sm text-red-600 mt-1">{errors.location}</p>}
@@ -192,7 +192,7 @@ export default function Calculation() {
 
 							{/* Garage Capacity */}
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">Garage Capacity</label>
+								<label className="block text-sm font-medium text-gray-700 mb-1">Garage Capacity *</label>
 								<input
 									type="number"
 									name="garageCapacity"
@@ -273,7 +273,7 @@ export default function Calculation() {
 							<div className="md:col-span-2 flex gap-3 justify-end pt-2">
 								<button
 									type="button"
-									className="border border-gray-300 text-gray-700 px-5 py-2 rounded-md hover:bg-gray-50"
+									className="border border-gray-300 text-gray-300 px-5 py-2 rounded-md hover:bg-gray-50 hover:text-gray-800"
 									onClick={() => {
 										setForm({
 											location: '', landSize: '', buildingArea: '', bedrooms: '', bathrooms: '', floors: '', garageCapacity: '', yearBuilt: '', facilitiesText: '',
