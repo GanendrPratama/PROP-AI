@@ -26,16 +26,16 @@ export default function Login() {
 			console.log('Login result:', result)
 			
 			
-			if (result.success && result.data) {
-				console.log('User data to store:', result.data)
+			if (result.success && result.payload) {
+				console.log('User data to store:', result.payload)
 				// Store user information in localStorage
-				setUser(result.data)
+				setUser(result.payload)
 				console.log('User stored, navigating to /listings')
 				
 				// Small delay to ensure storage completes
-				setTimeout(() => {
-					navigate('/listings')
-				}, 100)
+				// setTimeout(() => {
+				// 	navigate('/listings')
+				// }, 100)
 			} else {
 				console.error('Login failed:', result)
 				setError(result.message || 'Login failed')
