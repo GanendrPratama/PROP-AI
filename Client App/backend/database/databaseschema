@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS "HousingAds" (
     "bedrooms" SMALLINT NOT NULL,
     "bathrooms" SMALLINT NOT NULL,
     "garage_capacity" SMALLINT DEFAULT 0,
-    "facilities" TEXT,                       -- Bisa diisi sebagai JSONB jika Anda mau
+    "facilities" TEXT,                       -- Bisa diisi sebagai JSONB jika mau
                                              -- Contoh: '["Kolam Renang", "Taman"]'::jsonb
 
     -- Info Kontak per Iklan

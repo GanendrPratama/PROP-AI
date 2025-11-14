@@ -28,7 +28,12 @@ export const getAllHousingAds = async (filters = {}) => {
       throw new Error(result.message || 'Failed to fetch housing ads')
     }
 
-    return result
+    // Return with consistent structure, map 'payload' to 'data'
+    return {
+      success: result.success,
+      data: result.payload,
+      message: result.message
+    }
   } catch (error) {
     console.error('[Housing Ad Service] Get all ads error:', error)
     throw error
@@ -55,7 +60,11 @@ export const getHousingAdById = async (adId) => {
       throw new Error(result.message || 'Failed to fetch housing ad')
     }
 
-    return result
+    return {
+      success: result.success,
+      data: result.payload,
+      message: result.message
+    }
   } catch (error) {
     console.error('[Housing Ad Service] Get ad by ID error:', error)
     throw error
@@ -82,7 +91,11 @@ export const getHousingAdsByUserId = async (userId) => {
       throw new Error(result.message || 'Failed to fetch user housing ads')
     }
 
-    return result
+    return {
+      success: result.success,
+      data: result.payload,
+      message: result.message
+    }
   } catch (error) {
     console.error('[Housing Ad Service] Get ads by user ID error:', error)
     throw error
@@ -110,7 +123,11 @@ export const createHousingAd = async (adData) => {
       throw new Error(result.message || 'Failed to create housing ad')
     }
 
-    return result
+    return {
+      success: result.success,
+      data: result.payload,
+      message: result.message
+    }
   } catch (error) {
     console.error('[Housing Ad Service] Create ad error:', error)
     throw error
@@ -139,7 +156,11 @@ export const updateHousingAd = async (adId, adData) => {
       throw new Error(result.message || 'Failed to update housing ad')
     }
 
-    return result
+    return {
+      success: result.success,
+      data: result.payload,
+      message: result.message
+    }
   } catch (error) {
     console.error('[Housing Ad Service] Update ad error:', error)
     throw error
@@ -166,7 +187,11 @@ export const deleteHousingAd = async (adId) => {
       throw new Error(result.message || 'Failed to delete housing ad')
     }
 
-    return result
+    return {
+      success: result.success,
+      data: result.payload,
+      message: result.message
+    }
   } catch (error) {
     console.error('[Housing Ad Service] Delete ad error:', error)
     throw error
@@ -195,7 +220,11 @@ export const addImageToAd = async (adId, imageData) => {
       throw new Error(result.message || 'Failed to add image')
     }
 
-    return result
+    return {
+      success: result.success,
+      data: result.payload,
+      message: result.message
+    }
   } catch (error) {
     console.error('[Housing Ad Service] Add image error:', error)
     throw error
@@ -228,7 +257,11 @@ export const uploadImage = async (file) => {
             throw new Error(result.message || 'Failed to upload image')
           }
 
-          resolve(result)
+          resolve({
+            success: result.success,
+            payload: result.payload, // Keep payload for uploadImage
+            message: result.message
+          })
         } catch (error) {
           console.error('[Housing Ad Service] Upload image error:', error)
           reject(error)
@@ -262,7 +295,11 @@ export const deleteImage = async (imageId) => {
       throw new Error(result.message || 'Failed to delete image')
     }
 
-    return result
+    return {
+      success: result.success,
+      data: result.payload,
+      message: result.message
+    }
   } catch (error) {
     console.error('[Housing Ad Service] Delete image error:', error)
     throw error

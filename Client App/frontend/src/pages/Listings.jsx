@@ -6,37 +6,78 @@ import { getUser } from '../utils/auth';
 import { formatCurrencyIDR } from '../utils/format';
 import { getAllHousingAds } from '../services/housingAd';
 
-const ListingCard = ({ item }) => (
-    <div className="bg-white border rounded-xl shadow-sm p-4 flex flex-col hover:shadow-lg transition-shadow">
-        <div className="mb-2">
-            <span className={`text-xs px-2 py-1 rounded ${item.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
-                {item.status}
-            </span>
-        </div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
-        <p className="text-sm text-gray-600 line-clamp-2 mb-3">{item.description || '—'}</p>
-        <div className="space-y-1 mb-3">
-            <div className="text-sm text-gray-700">
-                <span className="text-gray-500">📍 Location:</span> {item.city || item.address}
-            </div>
-            <div className="text-sm text-gray-700">
-                <span className="text-gray-500">📐 Size:</span> {item.land_size_sqm}m² land, {item.building_size_sqm}m² building
-            </div>
-            <div className="text-sm text-gray-700">
-                <span className="text-gray-500">🏠 Specs:</span> {item.bedrooms} bed • {item.bathrooms} bath • {item.garage_capacity || 0} garage
-            </div>
-            {item.facilities && (
-                <div className="text-sm text-gray-700">
-                    <span className="text-gray-500">✨ Facilities:</span> {item.facilities}
+const ListingCard = ({ item }) => {
+    const primaryImage = item.images?.find(img => img.is_primary) || item.images?.[0];
+    
+    return (
+        <div className="bg-white border rounded-xl shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
+            {/* Image Section */}
+            {primaryImage ? (
+                <div className="relative w-full h-48 bg-gray-200">
+                    <img
+                        src={primaryImage.cloudinary_url}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-gray-400"><svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div>';
+                        }}
+                    />
+                    <div className="absolute top-2 right-2">
+                        <span className={`text-xs px-2 py-1 rounded ${item.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
+                            {item.status}
+                        </span>
+                    </div>
+                    {item.images && item.images.length > 1 && (
+                        <div className="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">
+                            📷 {item.images.length}
+                        </div>
+                    )}
+                </div>
+            ) : (
+                <div className="relative w-full h-48 bg-gray-200 flex items-center justify-center">
+                    <div className="text-gray-400 text-center">
+                        <svg className="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <p className="text-sm">No image</p>
+                    </div>
+                    <div className="absolute top-2 right-2">
+                        <span className={`text-xs px-2 py-1 rounded ${item.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
+                            {item.status}
+                        </span>
+                    </div>
                 </div>
             )}
+            
+            {/* Content Section */}
+            <div className="p-4 flex flex-col flex-1">
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
+                <p className="text-sm text-gray-600 line-clamp-2 mb-3">{item.description || '—'}</p>
+                <div className="space-y-1 mb-3">
+                    <div className="text-sm text-gray-700">
+                        <span className="text-gray-500">📍 Location:</span> {item.city || item.address}
+                    </div>
+                    <div className="text-sm text-gray-700">
+                        <span className="text-gray-500">📐 Size:</span> {item.land_size_sqm}m² land, {item.building_size_sqm}m² building
+                    </div>
+                    <div className="text-sm text-gray-700">
+                        <span className="text-gray-500">🏠 Specs:</span> {item.bedrooms} bed • {item.bathrooms} bath • {item.garage_capacity || 0} garage
+                    </div>
+                    {item.facilities && (
+                        <div className="text-sm text-gray-700">
+                            <span className="text-gray-500">✨ Facilities:</span> {item.facilities}
+                        </div>
+                    )}
+                </div>
+                <div className="mt-auto pt-3 border-t">
+                    <p className="text-xl font-bold text-[#395192] mb-1">{formatCurrencyIDR(item.price)}</p>
+                    <p className="text-xs text-gray-500">📞 Contact: {item.contact_phone}</p>
+                </div>
+            </div>
         </div>
-        <div className="mt-auto pt-3 border-t">
-            <p className="text-xl font-bold text-[#395192] mb-1">{formatCurrencyIDR(item.price)}</p>
-            <p className="text-xs text-gray-500">📞 Contact: {item.contact_phone}</p>
-        </div>
-    </div>
-);
+    );
+};
 
 export default function Listings() {
     const [user, setUser] = useState(null);
