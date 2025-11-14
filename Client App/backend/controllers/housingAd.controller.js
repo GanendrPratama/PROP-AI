@@ -1,5 +1,6 @@
 const baseResponse = require('../utils/baseResponse.util');
 const housingAdRepository = require('../repositories/housingAd.repository');
+const cloudinary = require('../config/cloudinary.config');
 
 /**
  * GET /api/housing-ads - Get all housing ads
@@ -60,6 +61,7 @@ exports.getAdsByUserId = async (req, res) => {
  */
 exports.createAd = async (req, res) => {
     try {
+        console.log('Received create ad request:', req.body);
         const {
             user_id, title, description, price, status,
             address, city, province, postal_code,
@@ -70,6 +72,7 @@ exports.createAd = async (req, res) => {
 
         // Validation
         if (!user_id || !title || !price || !address || !bedrooms || !bathrooms || !contact_phone) {
+            console.log('Validation failed - missing required fields');
             return baseResponse(res, false, 400, 'Required fields are missing', null);
         }
 
@@ -81,6 +84,7 @@ exports.createAd = async (req, res) => {
             contact_phone
         });
 
+        console.log('Housing ad created successfully:', newAd);
         return baseResponse(res, true, 201, 'Housing ad created successfully', newAd);
     } catch (error) {
         console.error('Create housing ad error:', error);
@@ -142,6 +146,39 @@ exports.deleteAd = async (req, res) => {
     } catch (error) {
         console.error('Delete housing ad error:', error);
         return baseResponse(res, false, 500, 'Server error', null);
+    }
+};
+
+/**
+ * POST /api/housing-ads/upload-image - Upload image to Cloudinary
+ */
+exports.uploadImage = async (req, res) => {
+    try {
+        const { image } = req.body;
+
+        if (!image) {
+            return baseResponse(res, false, 400, 'Image data is required', null);
+        }
+
+        // Upload to Cloudinary
+        const result = await cloudinary.uploader.upload(image, {
+            folder: 'propai/housing-ads',
+            resource_type: 'image',
+            transformation: [
+                { width: 1200, height: 800, crop: 'limit' },
+                { quality: 'auto' }
+            ]
+        });
+
+        return baseResponse(res, true, 200, 'Image uploaded successfully', {
+            url: result.secure_url,
+            public_id: result.public_id,
+            width: result.width,
+            height: result.height
+        });
+    } catch (error) {
+        console.error('Upload image error:', error);
+        return baseResponse(res, false, 500, 'Failed to upload image', null);
     }
 };
 

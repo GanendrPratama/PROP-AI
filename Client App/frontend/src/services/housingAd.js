@@ -203,6 +203,46 @@ export const addImageToAd = async (adId, imageData) => {
 }
 
 /**
+ * Upload image to Cloudinary
+ * @param {File} file - Image file
+ * @returns {Promise<Object>} - { success, statusCode, message, data: { url, public_id } }
+ */
+export const uploadImage = async (file) => {
+  try {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = async () => {
+        try {
+          const response = await fetch(`${API_URL}/upload-image`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ image: reader.result }),
+          })
+
+          const result = await response.json()
+          
+          if (!response.ok) {
+            throw new Error(result.message || 'Failed to upload image')
+          }
+
+          resolve(result)
+        } catch (error) {
+          console.error('[Housing Ad Service] Upload image error:', error)
+          reject(error)
+        }
+      }
+      reader.onerror = (error) => reject(error)
+    })
+  } catch (error) {
+    console.error('[Housing Ad Service] Upload image error:', error)
+    throw error
+  }
+}
+
+/**
  * Delete image
  * @param {string} imageId - Image ID
  * @returns {Promise<Object>} - { success, statusCode, message, data }

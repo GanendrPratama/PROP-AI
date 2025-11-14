@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import NavBar from '../NavBar'
 import Footer from '../Footer'
 import { predictPrice } from '../services/predict'
-import { createHousingAd } from '../services/housingAd'
+import { createHousingAd, uploadImage, addImageToAd } from '../services/housingAd'
 import { formatCurrencyIDR } from '../utils/format'
 import { getUser } from '../utils/auth'
 
@@ -33,6 +33,8 @@ export default function CreateListing() {
     const [suggestion, setSuggestion] = useState(null)
     const [loadingSuggest, setLoadingSuggest] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [images, setImages] = useState([])
+    const [uploadingImage, setUploadingImage] = useState(false)
 
     const change = (e) => {
         const { name, value } = e.target
@@ -45,6 +47,42 @@ export default function CreateListing() {
 
     const addExtra = () => setExtras((prev) => [...prev, { key: '', value: '' }])
     const removeExtra = (index) => setExtras((prev) => prev.filter((_, i) => i !== index))
+
+    const handleImageUpload = async (e) => {
+        const files = Array.from(e.target.files)
+        if (files.length === 0) return
+
+        setUploadingImage(true)
+        try {
+            const uploadPromises = files.map(async (file) => {
+                if (!file.type.startsWith('image/')) {
+                    throw new Error(`${file.name} is not an image file`)
+                }
+                if (file.size > 5 * 1024 * 1024) {
+                    throw new Error(`${file.name} is too large (max 5MB)`)
+                }
+                
+                const result = await uploadImage(file)
+                return {
+                    url: result.payload.url,
+                    public_id: result.payload.public_id,
+                    preview: URL.createObjectURL(file)
+                }
+            })
+
+            const uploadedImages = await Promise.all(uploadPromises)
+            setImages((prev) => [...prev, ...uploadedImages])
+        } catch (err) {
+            console.error('Image upload error:', err)
+            alert(err.message || 'Failed to upload images')
+        } finally {
+            setUploadingImage(false)
+        }
+    }
+
+    const removeImage = (index) => {
+        setImages((prev) => prev.filter((_, i) => i !== index))
+    }
 
     const validate = () => {
         const nErr = {}
@@ -148,9 +186,31 @@ export default function CreateListing() {
                 contact_phone: form.contactPhone
             }
 
+            console.log('Creating housing ad with data:', adData)
             const result = await createHousingAd(adData)
+            console.log('Create housing ad result:', result)
             
             if (result.success) {
+                const adId = result.payload.ad_id
+                
+                // Link uploaded images to the created ad
+                if (images.length > 0) {
+                    try {
+                        const imagePromises = images.map((img, index) =>
+                            addImageToAd(adId, {
+                                cloudinary_url: img.url,
+                                cloudinary_public_id: img.public_id,
+                                is_primary: index === 0
+                            })
+                        )
+                        await Promise.all(imagePromises)
+                        console.log('All images linked successfully')
+                    } catch (imgErr) {
+                        console.error('Error linking images:', imgErr)
+                        // Continue even if image linking fails
+                    }
+                }
+                
                 alert('Listing created successfully!')
                 navigate('/my-listings')
             } else {
@@ -287,6 +347,61 @@ export default function CreateListing() {
                                         <p className="text-xs text-gray-500 mt-1">Use the button above to get an AI suggestion.</p>
                                     )}
                                 </div>
+                                <div className="md:col-span-2">
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Property Images</label>
+                                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                                        <input
+                                            type="file"
+                                            accept="image/*"
+                                            multiple
+                                            onChange={handleImageUpload}
+                                            disabled={uploadingImage}
+                                            className="hidden"
+                                            id="image-upload"
+                                        />
+                                        <label
+                                            htmlFor="image-upload"
+                                            className={`flex flex-col items-center justify-center cursor-pointer ${uploadingImage ? 'opacity-60' : ''}`}
+                                        >
+                                            <svg className="w-12 h-12 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                            </svg>
+                                            <span className="text-sm text-gray-600">
+                                                {uploadingImage ? 'Uploading...' : 'Click to upload images (max 5MB each)'}
+                                            </span>
+                                        </label>
+                                        
+                                        {images.length > 0 && (
+                                            <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+                                                {images.map((img, idx) => (
+                                                    <div key={idx} className="relative group">
+                                                        <img
+                                                            src={img.preview}
+                                                            alt={`Upload ${idx + 1}`}
+                                                            className="w-full h-32 object-cover rounded-lg border border-gray-300"
+                                                        />
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => removeImage(idx)}
+                                                            className="absolute top-2 right-2 bg-red-600 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                        >
+                                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                                            </svg>
+                                                        </button>
+                                                        {idx === 0 && (
+                                                            <span className="absolute bottom-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
+                                                                Primary
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                    <p className="text-xs text-gray-500 mt-1">Upload up to 10 images. First image will be the primary photo.</p>
+                                </div>
+
                                 <div className="flex items-end">
                                     <button type="submit" disabled={loading} className="w-full md:w-auto bg-[#8F333E] text-white font-semibold px-6 py-2 rounded-md hover:opacity-90 disabled:opacity-60">
                                         {loading ? 'Publishing...' : 'Publish Listing'}
