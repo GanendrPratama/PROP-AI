@@ -98,9 +98,9 @@ export default function Calculation() {
     }
   };
 
-  return (
-    <div className="flex flex-col min-h-screen bg-gray-50 w-full">
-      <NavBar />
+	return (
+		<div className="flex flex-col min-h-screen bg-gray-50 w-screen">
+			<NavBar />
 
       <main className="flex-1">
         <section className="py-6 md:py-10 px-0">
@@ -134,6 +134,7 @@ export default function Calculation() {
                   <p className="text-sm text-red-600 mt-1">{errors.location}</p>
                 )}
               </div>
+
 
               {/* Land Size */}
               <div>
@@ -246,6 +247,7 @@ export default function Calculation() {
                   className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-lg hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                 />
               </div>
+
 
               {/* Year Built */}
               <div>
@@ -365,6 +367,7 @@ export default function Calculation() {
           </div>
         </section>
       </main>
+
 
       <Footer />
     </div>

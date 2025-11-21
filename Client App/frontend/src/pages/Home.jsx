@@ -9,6 +9,7 @@ import Logo from "../assets/logoPROP-AI.png";
 const INPUT_CLASS =
   "w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-lg hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all";
 
+
 // --- Hero Section ---
 const HeroSection = () => {
   return (
@@ -205,6 +206,7 @@ export default function Home() {
   const [user, setUser] = useState(null);
   const [listings, setListings] = useState([]);
 
+
   // Search state
   const [q, setQ] = useState("");
   const [minPrice, setMinPrice] = useState("");
@@ -280,6 +282,7 @@ export default function Home() {
       <Footer />
     </div>
   );
+
 }
 
 // --- Marketplace (Listings) Section ---
@@ -291,6 +294,7 @@ const Card = ({ item }) => (
     </p>
     <div className="text-sm text-gray-700 mb-1">
       <span className="text-gray-500">Location:</span> {item.specs?.location}
+
     </div>
     <div className="text-sm text-gray-700 mb-1">
       <span className="text-gray-500">Bedrooms:</span>{" "}
@@ -420,4 +424,5 @@ const MarketplaceSection = ({
       </div>
     </section>
   );
+
 };

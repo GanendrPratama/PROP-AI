@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import NavBar from '../NavBar'
 import Footer from '../Footer'
+import { registerUser } from '../services/user'
 
 export default function Register() {
 	const navigate = useNavigate()
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
+	const [phone, setPhone] = useState('')
 	const [password, setPassword] = useState('')
 	const [confirm, setConfirm] = useState('')
 	const [error, setError] = useState('')
@@ -15,15 +17,33 @@ export default function Register() {
 	const onSubmit = async (e) => {
 		e.preventDefault()
 		setError('')
-		if (!name || !email || !password || !confirm) return setError('Please fill in all fields')
-		if (password !== confirm) return setError('Passwords do not match')
+		if (!name || !email || !phone || !password || !confirm) {
+			return setError('Please fill in all fields')
+		}
+		if (password !== confirm) {
+			return setError('Passwords do not match')
+		}
+		if (password.length < 6) {
+			return setError('Password must be at least 6 characters')
+		}
+		
 		setLoading(true)
 		try {
-			await new Promise((r) => setTimeout(r, 700))
-			localStorage.setItem('propai:user', JSON.stringify({ name, email }))
-			navigate('/login')
-		} catch (e) {
-			setError('Registration failed. Try again.')
+			const result = await registerUser({
+				full_name: name,
+				email,
+				phone_number: phone,
+				password
+			})
+			
+			if (result.success) {
+				alert('Registration successful! Please login.')
+				navigate('/login')
+			} else {
+				setError(result.message || 'Registration failed')
+			}
+		} catch (err) {
+			setError(err.message || 'Registration failed. Please try again.')
 		} finally {
 			setLoading(false)
 		}
@@ -44,6 +64,7 @@ export default function Register() {
 								value={name}
 								onChange={(e) => setName(e.target.value)}
 								className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]"
+								required
 							/>
 						</div>
 						<div>
@@ -53,6 +74,18 @@ export default function Register() {
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
 								className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]"
+								required
+							/>
+						</div>
+						<div>
+							<label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+							<input
+								type="tel"
+								value={phone}
+								onChange={(e) => setPhone(e.target.value)}
+								className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]"
+								placeholder="e.g., 08123456789"
+								required
 							/>
 						</div>
 						<div>
@@ -62,6 +95,8 @@ export default function Register() {
 								value={password}
 								onChange={(e) => setPassword(e.target.value)}
 								className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]"
+								minLength="6"
+								required
 							/>
 						</div>
 						<div>
@@ -71,6 +106,8 @@ export default function Register() {
 								value={confirm}
 								onChange={(e) => setConfirm(e.target.value)}
 								className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#395192]"
+								minLength="6"
+								required
 							/>
 						</div>
 						{error ? <p className="text-sm text-red-600">{error}</p> : null}

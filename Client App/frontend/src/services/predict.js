@@ -1,9 +1,4 @@
-/**
- * Property Price Prediction Service
- * Connects to localhost:8000/predict API endpoint
- */
-
-const API_URL = 'http://localhost:8000/predict'
+const API_URL = 'http://localhost:8000/prediction'
 const DEFAULT_TIMEOUT = 30000 // 30 seconds for ML prediction
 
 /**

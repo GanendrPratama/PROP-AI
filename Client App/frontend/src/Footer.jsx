@@ -75,6 +75,7 @@ const Footer = () => {
                         <p className="text-xs mt-2 text-gray-400">Powered by AI Technology</p>
                     </div>
                 </div>
+
             </div>
         </footer>
     );

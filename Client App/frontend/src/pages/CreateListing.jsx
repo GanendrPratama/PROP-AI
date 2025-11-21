@@ -186,6 +186,7 @@ export default function CreateListing() {
                 ) : null}
               </div>
 
+
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Description
@@ -238,6 +239,7 @@ export default function CreateListing() {
                 ) : null}
               </div>
 
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Building Area (m²) *
@@ -258,111 +260,6 @@ export default function CreateListing() {
                     {errors.buildingArea}
                   </p>
                 ) : null}
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Bedrooms *
-                </label>
-                <input
-                  type="number"
-                  name="bedrooms"
-                  value={form.bedrooms}
-                  onChange={change}
-                  min="0"
-                  step="1"
-                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.bedrooms ? "border-red-500" : "border-gray-300"
-                  }`}
-                />
-                {errors.bedrooms ? (
-                  <p className="text-sm text-red-600 mt-1">{errors.bedrooms}</p>
-                ) : null}
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Bathrooms *
-                </label>
-                <input
-                  type="number"
-                  name="bathrooms"
-                  value={form.bathrooms}
-                  onChange={change}
-                  min="0"
-                  step="1"
-                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.bathrooms ? "border-red-500" : "border-gray-300"
-                  }`}
-                />
-                {errors.bathrooms ? (
-                  <p className="text-sm text-red-600 mt-1">
-                    {errors.bathrooms}
-                  </p>
-                ) : null}
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Floors
-                </label>
-                <input
-                  type="number"
-                  name="floors"
-                  value={form.floors}
-                  onChange={change}
-                  min="0"
-                  step="1"
-                  className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-lg hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Garage Capacity
-                </label>
-                <input
-                  type="number"
-                  name="garageCapacity"
-                  value={form.garageCapacity}
-                  onChange={change}
-                  min="0"
-                  step="1"
-                  className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-lg hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Year Built
-                </label>
-                <input
-                  type="number"
-                  name="yearBuilt"
-                  value={form.yearBuilt}
-                  onChange={change}
-                  min="1800"
-                  max={new Date().getFullYear()}
-                  step="1"
-                  className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-lg hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                />
-              </div>
-
-              <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Additional Facilities
-                </label>
-                <input
-                  type="text"
-                  name="facilitiesText"
-                  value={form.facilitiesText}
-                  onChange={change}
-                  placeholder="Comma separated, e.g., Garden, Swimming Pool, Security 24h"
-                  className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-lg hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                />
-                <p className="text-xs text-gray-500 mt-1">
-                  You can also add custom parameters below.
-                </p>
               </div>
 
               <div className="md:col-span-2">
@@ -408,6 +305,7 @@ export default function CreateListing() {
                       >
                         ✕
                       </button>
+
                     </div>
                   ))}
                 </div>
