@@ -2,6 +2,7 @@ const baseResponse = require('../utils/baseResponse.util');
 const housingAdRepository = require('../repositories/housingAd.repository');
 const cloudinary = require('../config/cloudinary.config');
 
+
 /**
  * GET /api/housing-ads - Get all housing ads
  */
@@ -154,28 +155,25 @@ exports.deleteAd = async (req, res) => {
  */
 exports.uploadImage = async (req, res) => {
     try {
-        const { image } = req.body;
-
-        if (!image) {
-            return baseResponse(res, false, 400, 'Image data is required', null);
+        if (!req.file) {
+            return baseResponse(res, false, 400, 'Image file is required', null);
         }
 
-        // Upload to Cloudinary
-        const result = await cloudinary.uploader.upload(image, {
-            folder: 'propai/housing-ads',
-            resource_type: 'image',
-            transformation: [
-                { width: 1200, height: 800, crop: 'limit' },
-                { quality: 'auto' }
-            ]
-        });
-
-        return baseResponse(res, true, 200, 'Image uploaded successfully', {
-            url: result.secure_url,
-            public_id: result.public_id,
-            width: result.width,
-            height: result.height
-        });
+        // Upload to Cloudinary using buffer
+        const result = await cloudinary.uploader.upload_stream(
+            { folder: 'propai/housing-ads', resource_type: 'image' },
+            (error, result) => {
+                if (error) {
+                    return baseResponse(res, false, 500, 'Failed to upload image', null);
+                }
+                return baseResponse(res, true, 200, 'Image uploaded successfully', {
+                    url: result.secure_url,
+                    public_id: result.public_id,
+                    width: result.width,
+                    height: result.height
+                });
+            }
+        ).end(req.file.buffer);
     } catch (error) {
         console.error('Upload image error:', error);
         return baseResponse(res, false, 500, 'Failed to upload image', null);

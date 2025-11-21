@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const upload = multer();
+
 const housingAdController = require('../controllers/housingAd.controller');
 
 // GET /api/housing-ads - Get all housing ads (with optional filters)
@@ -12,7 +15,7 @@ router.get('/user/:userId', housingAdController.getAdsByUserId);
 router.get('/:id', housingAdController.getAdById);
 
 // POST /api/housing-ads/upload-image - Upload image to Cloudinary
-router.post('/upload-image', housingAdController.uploadImage);
+router.post('/upload-image', upload.single('image'), housingAdController.uploadImage);
 
 // POST /api/housing-ads - Create new housing ad
 router.post('/', housingAdController.createAd);
