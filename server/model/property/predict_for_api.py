@@ -86,3 +86,4 @@ if __name__ == "__main__":
         error_output = {"error": True, "message": str(e)}
         print(json.dumps(error_output), file=sys.stderr)
         sys.exit(1)
+
