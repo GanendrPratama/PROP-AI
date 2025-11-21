@@ -1,0 +1,56 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+
+# Coverage and test output
+coverage/
+.nyc_output/
+
+# Build output
+dist/
+build/
+
+# Parcel / cache
+.cache/
+.parcel-cache/
+
+# Vite / Next / other framework caches
+.next/
+node_modules/.vite/
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache
+.npm/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Editor directories and config
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+.eslintcache
+.pnp.*
+*.tgz
+
