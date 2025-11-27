@@ -5,6 +5,7 @@ import Footer from "../Footer";
 import { predictPrice } from "../services/predict";
 import { formatCurrencyIDR } from "../utils/format";
 import { getUser } from "../utils/auth";
+import { createHousingAd, uploadImage, addImageToAd } from '../services/housingAd';
 
 export default function CreateListing() {
   const navigate = useNavigate();
@@ -21,11 +22,15 @@ export default function CreateListing() {
     yearBuilt: "",
     facilitiesText: "",
     listingPrice: "",
+    contactPhone: '',
   });
   const [extras, setExtras] = useState([{ key: "", value: "" }]);
   const [errors, setErrors] = useState({});
   const [suggestion, setSuggestion] = useState(null);
   const [loadingSuggest, setLoadingSuggest] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [images, setImages] = useState([]);
+  const [uploadingImage, setUploadingImage] = useState(false);
 
   const change = (e) => {
     const { name, value } = e.target;
@@ -42,6 +47,35 @@ export default function CreateListing() {
   const removeExtra = (index) =>
     setExtras((prev) => prev.filter((_, i) => i !== index));
 
+  const handleImageUpload = (e) => {
+    const files = Array.from(e.target.files)
+    if (files.length === 0) return
+
+    const validFiles = []
+    for (const file of files) {
+      if (!file.type.startsWith('image/')) {
+        alert(`${file.name} is not an image file`)
+        continue
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        alert(`${file.name} is too large (max 5MB)`)
+        continue
+      }
+      validFiles.push({
+        file,
+        preview: URL.createObjectURL(file)
+      })
+    }
+
+    if (validFiles.length > 0) {
+      setImages((prev) => [...prev, ...validFiles])
+    }
+  };
+
+  const removeImage = (index) => {
+    setImages((prev) => prev.filter((_, i) => i !== index))
+  };
+
   const validate = () => {
     const nErr = {};
     if (!form.title?.trim()) nErr.title = "Title is required";
@@ -54,6 +88,8 @@ export default function CreateListing() {
       nErr.bedrooms = "Bedrooms is required";
     if (!form.bathrooms || Number(form.bathrooms) < 0)
       nErr.bathrooms = "Bathrooms is required";
+    if (!form.contactPhone?.trim()) nErr.contactPhone = 'Contact phone is required';
+
     setErrors(nErr);
     return Object.keys(nErr).length === 0;
   };
@@ -103,30 +139,60 @@ export default function CreateListing() {
     }
   };
 
-  const submitListing = (e) => {
+  const submitListing = async (e) => {
     e.preventDefault();
     if (!validate()) return;
-    const payload = buildPayload();
-    const owner = getUser() || null;
-    const listing = {
-      id: Date.now().toString(),
+
+    const user = getUser();
+    if (!user || !user.user_id) {
+      alert('Please login to create a listing.');
+      navigate('/login');
+      return;
+    }
+
+    // Siapkan payload sesuai backend
+    const adData = {
+      user_id: user.user_id,
       title: form.title.trim(),
       description: form.description.trim(),
-      specs: payload,
-      suggested: suggestion?.estimatedPrice || null,
       price: Number(form.listingPrice || 0),
-      owner: owner ? { email: owner.email, name: owner.name } : null,
-      createdAt: new Date().toISOString(),
+      address: form.location,
+      city: form.location,
+      province: '',
+      postal_code: '',
+      latitude: null,
+      longitude: null,
+      land_size_sqm: Number(form.landSize),
+      building_size_sqm: Number(form.buildingArea),
+      bedrooms: Number(form.bedrooms),
+      bathrooms: Number(form.bathrooms),
+      garage_capacity: Number(form.garageCapacity || 0),
+      facilities: form.facilitiesText,
+      contact_phone: form.contactPhone
     };
+
     try {
-      const raw = localStorage.getItem("propai:listings");
-      const arr = raw ? JSON.parse(raw) : [];
-      arr.unshift(listing);
-      localStorage.setItem("propai:listings", JSON.stringify(arr));
-      navigate("/my-listings");
-    } catch (e) {
-      console.error(e);
-      alert("Failed to save listing.");
+      const result = await createHousingAd(adData);
+      if (result.success) {
+        const adId = result.data.ad_id;
+        // Upload gambar jika ada
+        if (images.length > 0) {
+          for (let i = 0; i < images.length; i++) {
+            const uploadResult = await uploadImage(images[i].file);
+            await addImageToAd(adId, {
+              cloudinary_url: uploadResult.payload.url,
+              cloudinary_public_id: uploadResult.payload.public_id,
+              is_primary: i === 0
+            });
+          }
+        }
+        alert('Listing created successfully!');
+        navigate('/my-listings');
+      } else {
+        alert(result.message || 'Failed to create listing.');
+      }
+    } catch (err) {
+      alert(err.message || 'Failed to create listing.');
     }
   };
 
@@ -177,9 +243,8 @@ export default function CreateListing() {
                   value={form.title}
                   onChange={change}
                   placeholder="e.g., Rumah 2 Lantai di Dago, Bandung"
-                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.title ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.title ? "border-red-500" : "border-gray-300"
+                    }`}
                 />
                 {errors.title ? (
                   <p className="text-sm text-red-600 mt-1">{errors.title}</p>
@@ -210,9 +275,8 @@ export default function CreateListing() {
                   name="location"
                   value={form.location}
                   onChange={change}
-                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.location ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.location ? "border-red-500" : "border-gray-300"
+                    }`}
                 />
                 {errors.location ? (
                   <p className="text-sm text-red-600 mt-1">{errors.location}</p>
@@ -230,9 +294,8 @@ export default function CreateListing() {
                   onChange={change}
                   min="0"
                   step="0.01"
-                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.landSize ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.landSize ? "border-red-500" : "border-gray-300"
+                    }`}
                 />
                 {errors.landSize ? (
                   <p className="text-sm text-red-600 mt-1">{errors.landSize}</p>
@@ -251,14 +314,84 @@ export default function CreateListing() {
                   onChange={change}
                   min="0"
                   step="0.01"
-                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.buildingArea ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.buildingArea ? "border-red-500" : "border-gray-300"
+                    }`}
                 />
                 {errors.buildingArea ? (
                   <p className="text-sm text-red-600 mt-1">
                     {errors.buildingArea}
                   </p>
+                ) : null}
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Bedrooms *
+                </label>
+                <input
+                  type="number"
+                  name="bedrooms"
+                  value={form.bedrooms}
+                  onChange={change}
+                  min="0"
+                  step="1"
+                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.bedrooms ? "border-red-500" : "border-gray-300"
+                    }`}
+                />
+                {errors.bedrooms ? (
+                  <p className="text-sm text-red-600 mt-1">{errors.bedrooms}</p>
+                ) : null}
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Bathrooms *
+                </label>
+                <input
+                  type="number"
+                  name="bathrooms"
+                  value={form.bathrooms}
+                  onChange={change}
+                  min="0"
+                  step="1"
+                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.bathrooms ? "border-red-500" : "border-gray-300"
+                    }`}
+                />
+                {errors.bathrooms ? (
+                  <p className="text-sm text-red-600 mt-1">{errors.bathrooms}</p>
+                ) : null}
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Garage Capacity
+                </label>
+                <input
+                  type="number"
+                  name="garageCapacity"
+                  value={form.garageCapacity}
+                  onChange={change}
+                  min="0"
+                  step="1"
+                  className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-lg hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Contact Phone *
+                </label>
+                <input
+                  type="tel"
+                  name="contactPhone"
+                  value={form.contactPhone}
+                  onChange={change}
+                  placeholder="e.g., 08123456789"
+                  className={`w-full px-4 py-2 bg-white text-black border rounded-lg transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.contactPhone ? "border-red-500" : "border-gray-300"
+                    }`}
+                />
+                {errors.contactPhone ? (
+                  <p className="text-sm text-red-600 mt-1">{errors.contactPhone}</p>
                 ) : null}
               </div>
 
@@ -334,6 +467,63 @@ export default function CreateListing() {
                     </p>
                   )}
                 </div>
+
+
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Property Images</label>
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      multiple
+                      onChange={handleImageUpload}
+                      disabled={uploadingImage}
+                      className="hidden"
+                      id="image-upload"
+                    />
+                    <label
+                      htmlFor="image-upload"
+                      className={`flex flex-col items-center justify-center cursor-pointer ${uploadingImage ? 'opacity-60' : ''}`}
+                    >
+                      <svg className="w-12 h-12 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                      </svg>
+                      <span className="text-sm text-gray-600">
+                        {uploadingImage ? 'Uploading...' : 'Click to upload images (max 5MB each)'}
+                      </span>
+                    </label>
+
+                    {images.length > 0 && (
+                      <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {images.map((img, idx) => (
+                          <div key={idx} className="relative group">
+                            <img
+                              src={img.preview}
+                              alt={`Upload ${idx + 1}`}
+                              className="w-full h-32 object-cover rounded-lg border border-gray-300"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => removeImage(idx)}
+                              className="absolute top-2 right-2 bg-red-600 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                            >
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                              </svg>
+                            </button>
+                            {idx === 0 && (
+                              <span className="absolute bottom-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
+                                Primary
+                              </span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">Upload up to 10 images. First image will be the primary photo.</p>
+                </div>
+
 
                 <div className="w-full md:w-1/3 flex justify-center">
                   <button

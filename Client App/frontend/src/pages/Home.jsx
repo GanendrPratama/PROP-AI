@@ -4,6 +4,7 @@ import NavBar from "../NavBar";
 import Footer from "../Footer";
 import { getUser } from "../utils/auth";
 import { formatCurrencyIDR } from "../utils/format";
+import { getAllHousingAds } from "../services/housingAd";
 import Logo from "../assets/logoPROP-AI.png";
 
 const INPUT_CLASS =
@@ -205,7 +206,7 @@ const CTASection = () => {
 export default function Home() {
   const [user, setUser] = useState(null);
   const [listings, setListings] = useState([]);
-
+  const [loading, setLoading] = useState(true);
 
   // Search state
   const [q, setQ] = useState("");
@@ -216,29 +217,40 @@ export default function Home() {
 
   useEffect(() => {
     setUser(getUser());
-    try {
-      const raw = localStorage.getItem("propai:listings");
-      const arr = raw ? JSON.parse(raw) : [];
-      // newest first
-      arr.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      setListings(arr);
-    } catch {
-      setListings([]);
-    }
+    fetchListings();
   }, []);
+
+  const fetchListings = async () => {
+    try {
+      setLoading(true);
+      const response = await getAllHousingAds();
+      if (response.success && response.data) {
+        // Sort by created date, newest first
+        const sortedListings = response.data.sort((a, b) => 
+          new Date(b.created_at) - new Date(a.created_at)
+        );
+        setListings(sortedListings);
+      }
+    } catch (error) {
+      console.error('Error fetching listings:', error);
+      setListings([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const visibleListings = useMemo(() => {
     // show other people's ads when logged in; otherwise show all
     const base = user
-      ? listings.filter((l) => l?.owner?.email !== user?.email)
+      ? listings.filter((l) => l?.user_id !== user?.user_id)
       : listings;
 
     return base.filter((l) => {
       const title = (l.title || "").toLowerCase();
       const desc = (l.description || "").toLowerCase();
-      const loc = (l.specs?.location || "").toLowerCase();
+      const loc = (l.city || l.address || "").toLowerCase();
       const price = Number(l.price || 0);
-      const beds = Number(l.specs?.bedrooms || 0);
+      const beds = Number(l.bedrooms || 0);
 
       if (
         q &&
@@ -267,6 +279,7 @@ export default function Home() {
       <MarketplaceSection
         user={user}
         listings={visibleListings}
+        loading={loading}
         q={q}
         setQ={setQ}
         minPrice={minPrice}
@@ -286,39 +299,48 @@ export default function Home() {
 }
 
 // --- Marketplace (Listings) Section ---
-const Card = ({ item }) => (
-  <div className="bg-white border rounded-xl shadow-sm p-4 flex flex-col">
-    <h3 className="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
-    <p className="text-sm text-gray-600 line-clamp-2 mb-3">
-      {item.description || "—"}
-    </p>
-    <div className="text-sm text-gray-700 mb-1">
-      <span className="text-gray-500">Location:</span> {item.specs?.location}
-
+const Card = ({ item }) => {
+  const primaryImage = item.images?.find(img => img.is_primary)?.cloudinary_url || 
+                       item.images?.[0]?.cloudinary_url;
+  
+  return (
+    <div className="bg-white border rounded-xl shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
+      {primaryImage && (
+        <img 
+          src={primaryImage} 
+          alt={item.title}
+          className="w-full h-48 object-cover"
+        />
+      )}
+      <div className="p-4 flex flex-col flex-1">
+        <h3 className="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
+        <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+          {item.description || "—"}
+        </p>
+        <div className="text-sm text-gray-700 mb-1">
+          <span className="text-gray-500">Location:</span> {item.city || item.address || "—"}
+        </div>
+        <div className="text-sm text-gray-700 mb-1">
+          <span className="text-gray-500">Bedrooms:</span> {item.bedrooms ?? "—"}
+        </div>
+        <div className="text-sm text-gray-700 mb-1">
+          <span className="text-gray-500">Building:</span> {item.building_size_sqm ?? "—"} m²
+        </div>
+        <p className="text-base font-bold text-gray-900 mt-auto">
+          {formatCurrencyIDR(item.price)}
+        </p>
+        <p className="text-xs text-gray-500 mt-1">
+          Contact: {item.contact_phone || "—"}
+        </p>
+      </div>
     </div>
-    <div className="text-sm text-gray-700 mb-1">
-      <span className="text-gray-500">Bedrooms:</span>{" "}
-      {item.specs?.bedrooms ?? "—"}
-    </div>
-    {item.suggested ? (
-      <p className="text-xs text-gray-500">
-        AI suggested: {formatCurrencyIDR(item.suggested)}
-      </p>
-    ) : null}
-    <p className="text-base font-bold text-gray-900 mt-1">
-      Price: {formatCurrencyIDR(item.price)}
-    </p>
-    {item.owner?.email ? (
-      <p className="text-xs text-gray-500 mt-2">
-        Posted by {item.owner.name || item.owner.email}
-      </p>
-    ) : null}
-  </div>
-);
+  );
+};
 
 const MarketplaceSection = ({
   user,
   listings,
+  loading,
   q,
   setQ,
   minPrice,
@@ -410,14 +432,19 @@ const MarketplaceSection = ({
         </div>
 
         {/* Listing grid */}
-        {listings.length === 0 ? (
+        {loading ? (
+          <div className="bg-white border rounded-xl shadow-sm p-6 text-center text-gray-700">
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#395192]"></div>
+            <p className="mt-2">Loading listings...</p>
+          </div>
+        ) : listings.length === 0 ? (
           <div className="bg-white border rounded-xl shadow-sm p-6 text-gray-700">
             No listings found. Try adjusting your filters or create a listing.
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {listings.map((l) => (
-              <Card key={l.id} item={l} />
+              <Card key={l.ad_id} item={l} />
             ))}
           </div>
         )}

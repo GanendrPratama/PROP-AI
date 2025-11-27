@@ -238,37 +238,25 @@ export const addImageToAd = async (adId, imageData) => {
  */
 export const uploadImage = async (file) => {
   try {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.readAsDataURL(file)
-      reader.onload = async () => {
-        try {
-          const response = await fetch(`${API_URL}/upload-image`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ image: reader.result }),
-          })
+    const formData = new FormData()
+    formData.append('image', file)
 
-          const result = await response.json()
-          
-          if (!response.ok) {
-            throw new Error(result.message || 'Failed to upload image')
-          }
-
-          resolve({
-            success: result.success,
-            payload: result.payload, // Keep payload for uploadImage
-            message: result.message
-          })
-        } catch (error) {
-          console.error('[Housing Ad Service] Upload image error:', error)
-          reject(error)
-        }
-      }
-      reader.onerror = (error) => reject(error)
+    const response = await fetch(`${API_URL}/upload-image`, {
+      method: 'POST',
+      body: formData,
     })
+
+    const result = await response.json()
+    
+    if (!response.ok) {
+      throw new Error(result.message || 'Failed to upload image')
+    }
+
+    return {
+      success: result.success,
+      payload: result.payload,
+      message: result.message
+    }
   } catch (error) {
     console.error('[Housing Ad Service] Upload image error:', error)
     throw error
