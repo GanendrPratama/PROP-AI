@@ -12,8 +12,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy backend definitions
-COPY "Client App/backend/package*.json" ./
-COPY "Client App/backend/.env" ./
+COPY ["Client App/backend/package*.json", "./"]
+COPY ["Client App/backend/.env", "./"]
 # Note: we might need to be careful with .env in production, usually secrets are Env Vars in Railway
 # But copying for now if user relies on it, though Railway injects them.
 
@@ -21,7 +21,7 @@ COPY "Client App/backend/.env" ./
 RUN npm install
 
 # Copy backend source
-COPY "Client App/backend" ./
+COPY ["Client App/backend", "./"]
 
 # Setup Python for Prediction
 # We need to copy the model directory from server/model to expected path
@@ -30,7 +30,7 @@ COPY "Client App/backend" ./
 # We are in /app which contains backend files.
 # We need to copy server/model to /app/model
 
-COPY "server/model" ./model
+COPY ["server/model", "./model"]
 
 # Install Python dependencies
 # backend/package.json doesn't list python deps.
