@@ -12,14 +12,18 @@ class PredictRepository {
      * @param {Object} payload - Prediction payload with location, LT, LB, bedrooms, toilet, garage
      * @returns {Promise<Object>} Prediction result from ML API
      */
-    async callPredictionAPI(payload) {
+    async predictPrice(payload) {
         try {
-            const response = await axios.post(PREDICTION_API_URL, payload, {
-                timeout: DEFAULT_TIMEOUT,
+            // Use environment variable or fallback to the production ML service
+            const apiUrl = process.env.ML_API_URL || 'https://prop-ai-model-production.up.railway.app/prediction';
+
+            console.log(`[PredictRepo] Sending request to: ${apiUrl}`);
+
+            const response = await axios.post(apiUrl, payload, {
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
+                    'Content-Type': 'application/json'
+                },
+                timeout: 30000 // 30 second timeout
             });
 
             return response.data;
