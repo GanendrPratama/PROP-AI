@@ -9,7 +9,7 @@ const cloudinary = require('../config/cloudinary.config');
 exports.getAllAds = async (req, res) => {
     try {
         const { status, city, min_price, max_price } = req.query;
-        
+
         const filters = {};
         if (status) filters.status = status;
         if (city) filters.city = city;
@@ -31,11 +31,11 @@ exports.getAdById = async (req, res) => {
     try {
         const { id } = req.params;
         const ad = await housingAdRepository.getAdById(id);
-        
+
         if (!ad) {
             return baseResponse(res, false, 404, 'Housing ad not found', null);
         }
-        
+
         return baseResponse(res, true, 200, 'Housing ad retrieved successfully', ad);
     } catch (error) {
         console.error('Get housing ad by ID error:', error);
@@ -223,3 +223,70 @@ exports.deleteImage = async (req, res) => {
         return baseResponse(res, false, 500, 'Server error', null);
     }
 };
+/**
+ * POST /api/housing-ads/upload-csv - Bulk upload from CSV
+ */
+exports.uploadCSV = async (req, res) => {
+    try {
+        if (!req.file) {
+            return baseResponse(res, false, 400, 'CSV file is required', null);
+        }
+
+        const csvContent = req.file.buffer.toString('utf8');
+        const lines = csvContent.split('\n');
+        const headers = lines[0].split(',').map(h => h.trim());
+
+        const adsToCreate = [];
+
+        // Basic CSV parsing (assuming simple comma separation, no quoted commas)
+        for (let i = 1; i < lines.length; i++) {
+            if (!lines[i].trim()) continue;
+
+            const values = lines[i].split(',').map(v => v.trim());
+            const row = {};
+            fs.createReadStream(req.file.path)
+                .pipe(csv())
+                .on('data', (row) => {
+                    // Map CSV columns to repository expected fields
+                    // Expected CSV headers: location, price, lt, lb, bedrooms, toilet, garage, image_url
+                    adsToCreate.push({
+                        user_id: 1, // System user
+                        title: `House in ${row.location}`, // Fallback title
+                        description: 'Imported from CSV',
+                        price: parseFloat(row.price) || 0,
+                        status: 'active',
+                        address: row.location, // For createAd compatibility
+                        city: row.location ? row.location.split(',')[0]?.trim() : '', // Assuming city is first part of location
+                        province: 'Indonesia', // Default
+                        postal_code: '',
+                        latitude: null,
+                        longitude: null,
+                        land_size_sqm: parseFloat(row.lt || 0),
+                        building_size_sqm: parseFloat(row.lb || 0),
+                        bedrooms: parseInt(row.bedrooms || 0),
+                        bathrooms: parseInt(row.toilet || 0),
+                        garage_capacity: parseInt(row.garage || 0),
+                        facilities: 'Standard',
+                        contact_phone: '08123456789', // Default/Placeholder
+                        image_url: row.image_url
+                    });
+                })
+                .on('end', async () => {
+                    if (adsToCreate.length > 0) {
+                        const result = await housingAdRepository.bulkCreateAds(adsToCreate);
+                        return baseResponse(res, true, 201, `Successfully imported ${result.length} listings`, { count: result.length });
+                    } else {
+                        return baseResponse(res, false, 400, 'No valid rows found in CSV', null);
+                    }
+                })
+                .on('error', (err) => {
+                    console.error('CSV stream error:', err);
+                    return baseResponse(res, false, 500, 'Error processing CSV file', null);
+                });
+        }
+    } catch (error) {
+        console.error('CSV upload error:', error);
+        return baseResponse(res, false, 500, 'Server error during CSV import', null);
+    }
+};
+

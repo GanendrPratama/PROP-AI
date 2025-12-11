@@ -17,6 +17,9 @@ router.get('/:id', housingAdController.getAdById);
 // POST /api/housing-ads/upload-image - Upload image to Cloudinary
 router.post('/upload-image', upload.single('image'), housingAdController.uploadImage);
 
+// POST /api/housing-ads/upload-csv - Upload CSV file
+router.post('/upload-csv', upload.single('file'), housingAdController.uploadCSV);
+
 // POST /api/housing-ads - Create new housing ad
 router.post('/', housingAdController.createAd);
 

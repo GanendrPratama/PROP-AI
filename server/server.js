@@ -1,11 +1,29 @@
 const express = require('express');
 const cors = require('cors');
 const { spawn } = require('child_process');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies
 app.use(cors()); // Enable CORS for all routes
 
 const PORT = 8000;
+
+// Function to find the first existing Python executable from a list of possible paths
+function findPythonExecutable() {
+    const possiblePaths = [
+        './model/property/env/bin/python3.13',
+        './model/property/env/bin/python3',
+        './model/property/env/bin/python'
+    ];
+
+    for (const pythonPath of possiblePaths) {
+        if (fs.existsSync(pythonPath)) {
+            return pythonPath;
+        }
+    }
+    return null;
+}
 
 /**
  * Endpoint to predict house prices.
@@ -28,16 +46,15 @@ app.post('/predict', (req, res) => {
     }
 
     // --- 2. Call the Python Script ---
-    const pythonExecutable = './model/property/env/Scripts/python.exe';
+    const pythonExecutable = findPythonExecutable();
     const pythonScript = './model/property/predict_for_api.py';
     
     // Check if the venv python exists
-    const fs = require('fs');
-    if (!fs.existsSync(pythonExecutable)) {
-        console.error(`Error: Python executable not found at ${pythonExecutable}`);
+    if (!pythonExecutable) {
+        console.error('Error: No Python executable found in virtual environment');
         return res.status(500).json({ 
             error: 'Server configuration error.', 
-            details: `Python virtual environment not found at ${pythonExecutable}` 
+            details: 'Python virtual environment not properly configured' 
         });
     }
 
