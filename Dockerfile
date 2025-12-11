@@ -13,7 +13,7 @@ WORKDIR /app
 
 # Copy backend definitions
 COPY ["Client App/backend/package*.json", "./"]
-COPY ["Client App/backend/.env", "./"]
+
 # Note: we might need to be careful with .env in production, usually secrets are Env Vars in Railway
 # But copying for now if user relies on it, though Railway injects them.
 
