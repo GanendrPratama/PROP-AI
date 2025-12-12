@@ -127,57 +127,51 @@ class HousingAdRepository {
 
     /**
      * Create new housing ad in 'properties'
+     * Using only columns that exist in the basic properties table
      */
     async createAd(adData) {
         const {
-            user_id, title, description, price, status,
-            address, city, province, postal_code,
-            latitude, longitude, land_size_sqm, building_size_sqm,
-            bedrooms, bathrooms, garage_capacity, facilities,
-            contact_phone
+            title, description, price, status,
+            address, city, land_size_sqm, building_size_sqm,
+            bedrooms, bathrooms, garage_capacity
         } = adData;
 
         // Map fields to properties table columns
-        const location = `${address}, ${city || ''}`;
+        const location = city ? `${address}, ${city}` : address;
 
+        // Use only the basic columns that exist in the Railway database
         const result = await db.query(
             `INSERT INTO properties 
-             (user_id, title, description, price, status, location, 
-              lt, lb, bedrooms, toilet, garage, facilities, contact_phone, province, postal_code, latitude, longitude)
-             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
+             (price, location, lt, lb, bedrooms, toilet, garage, source, status)
+             VALUES ($1, $2, $3, $4, $5, $6, $7, 'manual', $8)
              RETURNING id as ad_id, *`,
-            [user_id, title, description, price, status || 'active', location,
-                land_size_sqm, building_size_sqm, bedrooms, bathrooms,
-                garage_capacity || 0, facilities, contact_phone, province, postal_code, latitude, longitude]
+            [price, location, land_size_sqm, building_size_sqm,
+                bedrooms, bathrooms, garage_capacity || 0, status || 'active']
         );
         return result.rows[0];
     }
 
     /**
      * Update housing ad
+     * Using only columns that exist in the basic properties table
      */
     async updateAd(adId, adData) {
         const {
             title, description, price, status,
-            address, city, province, postal_code,
-            latitude, longitude, land_size_sqm, building_size_sqm,
-            bedrooms, bathrooms, garage_capacity, facilities,
-            contact_phone
+            address, city, land_size_sqm, building_size_sqm,
+            bedrooms, bathrooms, garage_capacity
         } = adData;
 
-        const location = `${address}, ${city || ''}`;
+        const location = city ? `${address}, ${city}` : address;
 
         const result = await db.query(
             `UPDATE properties 
-             SET title = $1, description = $2, price = $3, status = $4,
-                 location = $5, lt = $6, lb = $7, bedrooms = $8, toilet = $9, 
-                 garage = $10, facilities = $11, contact_phone = $12,
-                 province = $13, postal_code = $14, latitude = $15, longitude = $16
-             WHERE id = $17
+             SET price = $1, location = $2, lt = $3, lb = $4, 
+                 bedrooms = $5, toilet = $6, garage = $7, status = $8
+             WHERE id = $9
              RETURNING id as ad_id, *`,
-            [title, description, price, status, location, land_size_sqm, building_size_sqm,
-                bedrooms, bathrooms, garage_capacity, facilities, contact_phone,
-                province, postal_code, latitude, longitude, adId]
+            [price, location, land_size_sqm, building_size_sqm,
+                bedrooms, bathrooms, garage_capacity || 0, status || 'active', adId]
         );
         return result.rows[0];
     }
