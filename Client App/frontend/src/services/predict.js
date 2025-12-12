@@ -1,5 +1,5 @@
 const BASE_URL = import.meta.env.VITE_API_URL
-const API_URL = `${BASE_URL}/api/predict`
+const API_URL = `https://prop-ai-model-production.up.railway.app/prediction`
 const DEFAULT_TIMEOUT = 30000 // 30 seconds for ML prediction
 
 /**
