@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const PREDICTION_API_URL = 'http://localhost:8000/prediction';
+const PREDICTION_API_URL = 'https://prop-ai-model-production.up.railway.app/prediction';
 const DEFAULT_TIMEOUT = 30000; // 30 seconds
 
 /**
