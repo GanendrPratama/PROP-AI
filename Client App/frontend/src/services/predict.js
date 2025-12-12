@@ -1,4 +1,5 @@
-const API_URL = `${import.meta.env.VITE_API_URL}/api/predict` || 'http://localhost:3000/api/predict'
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+const API_URL = `${BASE_URL}/api/predict`
 const DEFAULT_TIMEOUT = 30000 // 30 seconds for ML prediction
 
 /**
@@ -10,7 +11,7 @@ const createTimeoutController = (timeoutMs) => {
     console.error(`[Predict Service] Request timeout after ${timeoutMs}ms`)
     controller.abort()
   }, timeoutMs)
-  
+
   return {
     controller,
     clearTimeout: () => clearTimeout(timeoutId)
@@ -31,7 +32,7 @@ const transformPayloadToAPI = (payload) => {
     LT: Number(payload.landSize) || 0,
     LB: Number(payload.buildingArea) || 0,
   }
-  
+
   console.log('[Predict Service] Transformed payload:', apiPayload)
   return apiPayload
 }
@@ -43,33 +44,33 @@ const transformPayloadToAPI = (payload) => {
  */
 const transformAPIResponse = (apiResponse) => {
   console.log('[Predict Service] Raw API response:', apiResponse)
-  
+
   // Validate response
   if (!apiResponse || typeof apiResponse.predicted_price_raw !== 'number') {
     throw new Error('Invalid API response: missing predicted_price_raw')
   }
-  
+
   // Calculate total percentage for validation
   const totalPercentage = apiResponse.feature_importance?.reduce(
-    (sum, item) => sum + (item.Percentage || 0), 
+    (sum, item) => sum + (item.Percentage || 0),
     0
   ) || 0
-  
+
   console.log('[Predict Service] Total feature importance:', totalPercentage.toFixed(2) + '%')
-  
+
   // Transform importances to object format
   const importances = {}
   apiResponse.feature_importance?.forEach(item => {
     importances[item.Feature] = item.Percentage / 100 // Convert to decimal (0-1)
   })
-  
+
   // Create breakdown with calculated values
   const breakdown = apiResponse.feature_importance?.map(item => ({
     label: item.Feature,
     value: (apiResponse.predicted_price_raw * item.Percentage) / 100,
     percentage: item.Percentage
   })) || []
-  
+
   const result = {
     model: 'random_forest',
     currency: 'IDR',
@@ -80,7 +81,7 @@ const transformAPIResponse = (apiResponse) => {
     breakdown,
     raw: apiResponse // Keep original for debugging
   }
-  
+
   console.log('[Predict Service] Transformed result:', result)
   return result
 }
@@ -92,16 +93,16 @@ const transformAPIResponse = (apiResponse) => {
 export async function predictPrice(payload) {
   console.log('[Predict Service] Starting prediction request...')
   console.log('[Predict Service] Input payload:', payload)
-  
+
   const { controller, clearTimeout } = createTimeoutController(DEFAULT_TIMEOUT)
-  
+
   try {
     // Transform payload to API format
     const apiPayload = transformPayloadToAPI(payload)
-    
+
     console.log('[Predict Service] Sending POST to', API_URL)
     console.log('[Predict Service] Request body:', JSON.stringify(apiPayload, null, 2))
-    
+
     // Make request to prediction API
     const response = await fetch(API_URL, {
       method: 'POST',
@@ -112,31 +113,31 @@ export async function predictPrice(payload) {
       body: JSON.stringify(apiPayload),
       signal: controller.signal
     })
-    
+
     clearTimeout()
-    
+
     console.log('[Predict Service] Response status:', response.status, response.statusText)
-    
+
     // Check response status
     if (!response.ok) {
       const errorText = await response.text()
       console.error('[Predict Service] API error response:', errorText)
       throw new Error(`API returned status ${response.status}: ${errorText}`)
     }
-    
+
     // Parse JSON response
     const apiResponse = await response.json()
     console.log('[Predict Service] Successfully received response')
-    
+
     // Transform and return result
     const result = transformAPIResponse(apiResponse)
     console.log('[Predict Service] Prediction completed successfully')
-    
+
     return result
-    
+
   } catch (error) {
     clearTimeout()
-    
+
     // Log detailed error information
     if (error.name === 'AbortError') {
       console.error('[Predict Service] Request timeout - server took too long to respond')
