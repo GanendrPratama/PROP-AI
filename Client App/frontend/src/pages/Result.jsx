@@ -33,7 +33,7 @@ export default function Result() {
 			const sRes = sessionStorage.getItem('propai:lastResult')
 			if (sRes) result = JSON.parse(sRes)
 			if (sIn) input = JSON.parse(sIn)
-		} catch {}
+		} catch { }
 	}
 
 	if (!result) {
@@ -56,7 +56,7 @@ export default function Result() {
 	const maxBreakdown = Math.max(...breakdown.map((b) => b.value), estimatedPrice)
 
 	return (
-		<div className="flex flex-col min-h-screen bg-gray-50">
+		<div className="flex flex-col min-h-screen bg-gray-50 w-full">
 			<NavBar />
 			<main className="flex-1">
 				<section className="py-6 md:py-10 px-4 md:px-6">
@@ -65,7 +65,7 @@ export default function Result() {
 						<div className="lg:col-span-2 bg-white border rounded-xl shadow-sm p-6">
 							<h1 className="text-2xl font-bold text-[#395192] mb-3">Estimated Property Price</h1>
 							<div className="text-4xl font-extrabold text-gray-900 mb-2">
-								{priceFormatted || formatCurrencyIDR(estimatedPrice)} 
+								{priceFormatted || formatCurrencyIDR(estimatedPrice)}
 								<span className="text-base font-medium text-gray-500"> {currency}</span>
 							</div>
 							<p className="text-sm text-gray-600 mb-2">Model: {model || '—'}</p>
@@ -91,9 +91,9 @@ export default function Result() {
 													</div>
 												</div>
 												<div className="w-full bg-gray-100 rounded-full h-3">
-													<div 
-														className="bg-[#395192] h-3 rounded-full transition-all" 
-														style={{ width: `${Math.max(2, Math.round((item.value / Math.max(1, maxBreakdown)) * 100))}%` }} 
+													<div
+														className="bg-[#395192] h-3 rounded-full transition-all"
+														style={{ width: `${Math.max(2, Math.round((item.value / Math.max(1, maxBreakdown)) * 100))}%` }}
 													/>
 												</div>
 											</div>
@@ -119,9 +119,9 @@ export default function Result() {
 													<span className="font-semibold">{percent(v, 2)}</span>
 												</div>
 												<div className="w-full bg-gray-100 rounded-full h-2">
-													<div 
+													<div
 														className={`h-2 rounded-full transition-all ${k === mostInfluentialFeature ? 'bg-[#8F333E]' : 'bg-[#395192]'}`}
-														style={{ width: `${Math.min(100, Math.max(3, v * 100))}%` }} 
+														style={{ width: `${Math.min(100, Math.max(3, v * 100))}%` }}
 													/>
 												</div>
 											</div>

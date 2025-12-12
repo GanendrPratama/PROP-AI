@@ -25,7 +25,7 @@ export default function MyListings() {
     // Fetch listings
     useEffect(() => {
         if (!user || !user.user_id) return
-        
+
         const fetchListings = async () => {
             try {
                 setLoading(true)
@@ -40,13 +40,13 @@ export default function MyListings() {
                 setLoading(false)
             }
         }
-        
+
         fetchListings()
     }, [user])
 
     const remove = async (id) => {
         if (!confirm('Are you sure you want to delete this listing?')) return
-        
+
         try {
             const result = await deleteHousingAd(id)
             if (result.success) {
@@ -62,7 +62,7 @@ export default function MyListings() {
     }
 
     return (
-        <div className="flex flex-col min-h-screen bg-gray-50">
+        <div className="flex flex-col min-h-screen bg-gray-50 w-full">
             <NavBar />
             <main className="flex-1">
                 <section className="py-6 md:py-10 px-4 md:px-6">
@@ -79,7 +79,7 @@ export default function MyListings() {
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 {listings.map((l) => {
                                     const primaryImage = l.images?.find(img => img.is_primary) || l.images?.[0];
-                                    
+
                                     return (
                                         <div key={l.ad_id} className="bg-white border rounded-xl shadow-sm overflow-hidden flex flex-col">
                                             {/* Image Section */}
@@ -120,7 +120,7 @@ export default function MyListings() {
                                                     </div>
                                                 </div>
                                             )}
-                                            
+
                                             {/* Content Section */}
                                             <div className="p-4 flex flex-col flex-1">
                                                 <h2 className="text-lg font-semibold text-gray-900 mb-1">{l.title}</h2>

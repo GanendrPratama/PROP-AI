@@ -24,14 +24,14 @@ export default function Login() {
 			console.log('Attempting login with:', email)
 			const result = await loginUser({ email, password })
 			console.log('Login result:', result)
-			
-			
+
+
 			if (result.success && result.payload) {
 				console.log('User data to store:', result.payload)
 				// Store user information in localStorage
 				setUser(result.payload)
 				console.log('User stored, navigating to /listings')
-				
+
 				// Small delay to ensure storage completes
 				// setTimeout(() => {
 				// 	navigate('/listings')
@@ -49,7 +49,7 @@ export default function Login() {
 	}
 
 	return (
-		<div className="flex flex-col min-h-screen bg-gray-50">
+		<div className="flex flex-col min-h-screen bg-gray-50 w-full">
 			<NavBar />
 			<main className="flex-1 px-0 py-6 md:py-10">
 				<div className="w-full bg-white border-t md:border rounded-none md:rounded-none shadow-sm p-6">

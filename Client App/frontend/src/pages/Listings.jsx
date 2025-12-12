@@ -8,7 +8,7 @@ import { getAllHousingAds } from '../services/housingAd';
 
 const ListingCard = ({ item }) => {
     const primaryImage = item.images?.find(img => img.is_primary) || item.images?.[0];
-    
+
     return (
         <div className="bg-white border rounded-xl shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
             {/* Image Section */}
@@ -49,7 +49,7 @@ const ListingCard = ({ item }) => {
                     </div>
                 </div>
             )}
-            
+
             {/* Content Section */}
             <div className="p-4 flex flex-col flex-1">
                 <h3 className="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
@@ -109,7 +109,7 @@ export default function Listings() {
                 setLoading(true);
                 const result = await getAllHousingAds({ status: 'active' });
                 if (result.success && result.data) {
-                    const sorted = result.data.sort((a, b) => 
+                    const sorted = result.data.sort((a, b) =>
                         new Date(b.created_at) - new Date(a.created_at)
                     );
                     setListings(sorted);
@@ -121,7 +121,7 @@ export default function Listings() {
                 setLoading(false);
             }
         };
-        
+
         fetchListings();
     }, []);
 
@@ -139,7 +139,7 @@ export default function Listings() {
         // Search filter
         if (searchQuery) {
             const query = searchQuery.toLowerCase();
-            filtered = filtered.filter(l => 
+            filtered = filtered.filter(l =>
                 (l.title || '').toLowerCase().includes(query) ||
                 (l.description || '').toLowerCase().includes(query) ||
                 (l.city || '').toLowerCase().includes(query) ||
@@ -150,7 +150,7 @@ export default function Listings() {
         // City filter
         if (cityFilter) {
             const city = cityFilter.toLowerCase();
-            filtered = filtered.filter(l => 
+            filtered = filtered.filter(l =>
                 (l.city || '').toLowerCase().includes(city) ||
                 (l.address || '').toLowerCase().includes(city)
             );
@@ -181,9 +181,9 @@ export default function Listings() {
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-gray-50">
+        <div className="flex flex-col min-h-screen bg-gray-50 w-full">
             <NavBar />
-            
+
             <main className="flex-1">
                 {/* Header Section */}
                 <section className="bg-[#395192] text-white py-12 px-4">
@@ -216,11 +216,10 @@ export default function Listings() {
                                 <div className="flex gap-2">
                                     <button
                                         onClick={() => setShowMyListings(!showMyListings)}
-                                        className={`px-4 py-2 rounded-md font-medium transition ${
-                                            showMyListings 
-                                                ? 'bg-[#395192] text-white' 
+                                        className={`px-4 py-2 rounded-md font-medium transition ${showMyListings
+                                                ? 'bg-[#395192] text-white'
                                                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                        }`}
+                                            }`}
                                     >
                                         {showMyListings ? 'Show All Listings' : 'Show My Listings'}
                                     </button>
@@ -232,7 +231,7 @@ export default function Listings() {
                                     </button>
                                 </div>
                             </div>
-                            
+
                             <div className="grid grid-cols-1 md:grid-cols-6 gap-3">
                                 <input
                                     type="text"
@@ -295,8 +294,8 @@ export default function Listings() {
                                     {showMyListings ? 'No listings yet' : 'No listings found'}
                                 </h3>
                                 <p className="text-gray-600 mb-6">
-                                    {showMyListings 
-                                        ? 'Create your first listing to get started!' 
+                                    {showMyListings
+                                        ? 'Create your first listing to get started!'
                                         : 'Try adjusting your filters or check back later.'}
                                 </p>
                                 {showMyListings && (
