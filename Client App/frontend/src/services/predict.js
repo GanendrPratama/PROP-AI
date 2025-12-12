@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8000/prediction'
+const API_URL = `${import.meta.env.VITE_API_URL}/api/predict` || 'http://localhost:3000/api/predict'
 const DEFAULT_TIMEOUT = 30000 // 30 seconds for ML prediction
 
 /**
