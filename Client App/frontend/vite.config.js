@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   preview: {
-    allowedHosts: ['prop-ai-production-cc5e.up.railway.app'],
+    allowedHosts: true, // Allow all hosts (for Railway)
+  },
+  server: {
+    allowedHosts: true,
   }
 })
