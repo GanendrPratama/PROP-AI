@@ -4,7 +4,7 @@ import sys
 import time
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
-# --- Parsing functions (same as before) ---
+# --- Parsing functions (no changes) ---
 def parse_price(price_str):
     if not isinstance(price_str, str) or price_str == "N/A": return "N/A"
     try:
@@ -23,17 +23,18 @@ def parse_area(area_str):
         except (ValueError, TypeError): return "N/A"
     return "N/A"
 
-# --- Main scraping function now accepts a page_number ---
-def scrape_page(page_number):
+# --- Main scraping function (updated) ---
+def scrape_page(base_url, page_number):
     """
-    Scrapes all property details from a specific page number.
+    Scrapes all property details from a specific URL and page number.
     """
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
         
-        url = f"https://www.rumah123.com/jual/rumah/?page={page_number}"
-        print(f"Navigating to page {page_number}: {url}...")
+        # Construct the URL from the base URL and page number
+        url = f"{base_url.rstrip('/')}/?page={page_number}"
+        print(f"  - Navigating to: {url}...")
 
         try:
             page.goto(url, wait_until="networkidle", timeout=90000)
@@ -45,17 +46,18 @@ def scrape_page(page_number):
             listing_count = listings.count()
             
             if listing_count == 0:
-                print(f"No listings found on page {page_number}.")
-                page.screenshot(path="scraper_debug.png")
+                print(f"  - No listings found on page {page_number}.")
+                page.screenshot(path=f"scraper_debug_page_{page_number}.png")
                 return []
             
-            print(f"Found {listing_count} listings on page {page_number}. Scraping data...")
+            print(f"  - Found {listing_count} listings. Scraping data...")
             scraped_data = []
 
             for i in range(listing_count):
                 listing = listings.nth(i)
                 price_raw, location_raw, lt_raw, lb_raw = ("N/A",) * 4
                 bedrooms, bathrooms, garage = ("N/A",) * 3
+                listing_url, image_url = "N/A", "N/A"
 
                 price_el = listing.locator('div.card-featured__middle-section__price strong, div[data-test-id="card-price"]').first
                 if price_el.count(): price_raw = price_el.inner_text().strip()
@@ -90,9 +92,29 @@ def scrape_page(page_number):
                 building_area_el = listing.locator("div.attribute-info:has-text('LB') span, p:has-text('LB')").first
                 if building_area_el.count(): lb_raw = building_area_el.inner_text().strip()
                 
+                link_el = listing.locator('a[href^="/properti/"]').first
+                if link_el.count():
+                    href = link_el.get_attribute('href')
+                    if href:
+                        listing_url = "https://www.rumah123.com" + href
+                
+                img_el = listing.locator('img').first
+                if img_el.count():
+                    src = img_el.get_attribute('src')
+                    if src:
+                        image_url = src
+
                 scraped_data.append({
-                    "price": parse_price(price_raw), "location": location_raw, "bedrooms": bedrooms,
-                    "toilet": bathrooms, "garage": garage, "LT": parse_area(lt_raw), "LB": parse_area(lb_raw)
+                    "price": parse_price(price_raw), 
+                    "location": location_raw, 
+                    "bedrooms": bedrooms,
+                    "toilet": bathrooms, 
+                    "garage": garage, 
+                    "LT": parse_area(lt_raw), 
+                    "LB": parse_area(lb_raw),
+                    "listing_url": listing_url, 
+                    "image_url": image_url,
+                    "source": "rumah123" # --- NEW COLUMN ADDED ---
                 })
             
             return scraped_data
@@ -108,31 +130,32 @@ def save_to_csv(data, filename):
     if not data:
         print("No data to save.")
         return
-    fieldnames = ['price', 'location', 'bedrooms', 'toilet', 'garage', 'LT', 'LB']
+    # --- MODIFIED: Added 'source' fieldname ---
+    fieldnames = ['price', 'location', 'bedrooms', 'toilet', 'garage', 'LT', 'LB', 'listing_url', 'image_url', 'source']
+    
     with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(data)
     print(f"\n✅ Success! Data has been saved to '{filename}'")
 
-# (Keep all your functions like parse_price, scrape_page, etc. the same)
-
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("❌ Error: Please provide a page number to scrape.")
-        print("Usage: python rumah123scraper.py <page_number>")
+    # --- MODIFIED: Accept 2 arguments ---
+    if len(sys.argv) != 3: # script name, base_url, page_number
+        print("❌ Error: Please provide a base_url and a page_number.")
+        print("Usage: python rumah123scraper.py <base_url> <page_number>")
         sys.exit(1)
         
     try:
-        page_to_scrape = int(sys.argv[1])
+        base_url = sys.argv[1]
+        page_to_scrape = int(sys.argv[2])
     except ValueError:
         print("❌ Error: Page number must be an integer.")
         sys.exit(1)
 
-    property_data = scrape_page(page_to_scrape)
+    property_data = scrape_page(base_url, page_to_scrape)
     
     if property_data:
-        # --- MODIFICATION IS HERE ---
-        # Save the file to an 'output' subfolder.
+        # Save to a dynamic filename in the 'output' folder
         output_filename = f"output/properties_page_{page_to_scrape}.csv"
         save_to_csv(property_data, output_filename)

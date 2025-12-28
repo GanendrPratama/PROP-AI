@@ -1,0 +1,11 @@
+numpy
+pandas
+python-dateutil
+pytz
+six
+tzdata
+flask
+flask-cors
+shap
+scikit-learn
+gunicorn

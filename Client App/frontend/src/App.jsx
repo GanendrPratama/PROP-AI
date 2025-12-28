@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import CreateListing from './pages/CreateListing'
 import MyListings from './pages/MyListings'
+import Listings from './pages/Listings'
 import './App.css'
 
 const isLoggedIn = () => {
@@ -29,6 +30,7 @@ function App() {
       <Route path="/result" element={<Result />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/listings" element={<Protected><Listings /></Protected>} />
       <Route path="/create-listing" element={<Protected><CreateListing /></Protected>} />
       <Route path="/my-listings" element={<Protected><MyListings /></Protected>} />
       <Route path="*" element={<Navigate to="/" />} />

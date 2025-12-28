@@ -1,2 +1,6 @@
 *.joblib
 ./NJOP.csv
+env/
+.env/
+venv/
+.venv/

@@ -33,12 +33,12 @@ export default function Result() {
 			const sRes = sessionStorage.getItem('propai:lastResult')
 			if (sRes) result = JSON.parse(sRes)
 			if (sIn) input = JSON.parse(sIn)
-		} catch {}
+		} catch { }
 	}
 
 	if (!result) {
 		return (
-			<div className="flex flex-col min-h-screen bg-gray-50 w-screen">
+			<div className="flex flex-col min-h-screen bg-gray-50 w-full">
 				<NavBar />
 				<main className="flex-1 flex items-center justify-center">
 					<div className="text-center p-8 bg-white border rounded-lg shadow-sm">
@@ -52,11 +52,11 @@ export default function Result() {
 		)
 	}
 
-	const { estimatedPrice, breakdown = [], importances = {}, currency = 'IDR', model } = result
+	const { estimatedPrice, priceFormatted, breakdown = [], importances = {}, currency = 'IDR', model, mostInfluentialFeature } = result
 	const maxBreakdown = Math.max(...breakdown.map((b) => b.value), estimatedPrice)
 
 	return (
-		<div className="flex flex-col min-h-screen bg-gray-50">
+		<div className="flex flex-col min-h-screen bg-gray-50 w-full">
 			<NavBar />
 			<main className="flex-1">
 				<section className="py-6 md:py-10 px-4 md:px-6">
@@ -64,17 +64,39 @@ export default function Result() {
 						{/* Summary Card */}
 						<div className="lg:col-span-2 bg-white border rounded-xl shadow-sm p-6">
 							<h1 className="text-2xl font-bold text-[#395192] mb-3">Estimated Property Price</h1>
-							<div className="text-4xl font-extrabold text-gray-900 mb-2">{formatCurrencyIDR(estimatedPrice)} <span className="text-base font-medium text-gray-500">{currency}</span></div>
-							<p className="text-sm text-gray-600 mb-4">Model: {model || '—'}</p>
+							<div className="text-4xl font-extrabold text-gray-900 mb-2">
+								{priceFormatted || formatCurrencyIDR(estimatedPrice)}
+								<span className="text-base font-medium text-gray-500"> {currency}</span>
+							</div>
+							<p className="text-sm text-gray-600 mb-2">Model: {model || '—'}</p>
+							{mostInfluentialFeature && (
+								<p className="text-sm text-[#8F333E] font-semibold mb-4">
+									Most Influential Feature: {mostInfluentialFeature}
+								</p>
+							)}
 
 							<div className="bg-[#f9fafb] border rounded-lg p-4">
-								<h2 className="text-lg font-semibold text-gray-800 mb-3">Detailed Price Breakdown</h2>
+								<h2 className="text-lg font-semibold text-gray-800 mb-3">Feature Contribution to Price</h2>
 								{breakdown.length === 0 ? (
 									<p className="text-gray-600">No breakdown provided.</p>
 								) : (
 									<div>
 										{breakdown.map((item, idx) => (
-											<Bar key={idx} label={item.label} value={item.value} maxValue={maxBreakdown} />
+											<div key={idx} className="mb-3">
+												<div className="flex justify-between text-sm text-gray-700 mb-1">
+													<span className="font-medium">{item.label}</span>
+													<div className="text-right">
+														<span className="block">{formatCurrencyIDR(item.value)}</span>
+														<span className="text-xs text-gray-500">{item.percentage?.toFixed(2)}%</span>
+													</div>
+												</div>
+												<div className="w-full bg-gray-100 rounded-full h-3">
+													<div
+														className="bg-[#395192] h-3 rounded-full transition-all"
+														style={{ width: `${Math.max(2, Math.round((item.value / Math.max(1, maxBreakdown)) * 100))}%` }}
+													/>
+												</div>
+											</div>
 										))}
 									</div>
 								)}
@@ -88,17 +110,22 @@ export default function Result() {
 								{Object.keys(importances).length === 0 ? (
 									<p className="text-gray-600">No importance data.</p>
 								) : (
-									Object.entries(importances).map(([k, v]) => (
-										<div key={k}>
-											<div className="flex justify-between text-sm text-gray-700 mb-1">
-												<span className="capitalize">{k.replace(/([A-Z])/g, ' $1').trim()}</span>
-												<span>{percent(v, 0)}</span>
+									Object.entries(importances)
+										.sort((a, b) => b[1] - a[1]) // Sort by importance descending
+										.map(([k, v]) => (
+											<div key={k} className={k === mostInfluentialFeature ? 'bg-red-50 p-2 rounded-md -m-2 mb-1' : ''}>
+												<div className="flex justify-between text-sm text-gray-700 mb-1">
+													<span className="font-medium capitalize">{k}</span>
+													<span className="font-semibold">{percent(v, 2)}</span>
+												</div>
+												<div className="w-full bg-gray-100 rounded-full h-2">
+													<div
+														className={`h-2 rounded-full transition-all ${k === mostInfluentialFeature ? 'bg-[#8F333E]' : 'bg-[#395192]'}`}
+														style={{ width: `${Math.min(100, Math.max(3, v * 100))}%` }}
+													/>
+												</div>
 											</div>
-											<div className="w-full bg-gray-100 rounded-full h-2">
-												<div className="bg-[#8F333E] h-2 rounded-full" style={{ width: `${Math.min(100, Math.max(3, v * 100))}%` }} />
-											</div>
-										</div>
-									))
+										))
 								)}
 							</div>
 

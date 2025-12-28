@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import NavBar from '../NavBar'
 import Footer from '../Footer'
+import { loginUser } from '../services/user'
+import { setUser } from '../utils/auth'
 
 export default function Login() {
 	const navigate = useNavigate()
@@ -19,19 +21,35 @@ export default function Login() {
 		}
 		setLoading(true)
 		try {
-			// Placeholder: fake login
-			await new Promise((r) => setTimeout(r, 600))
-			localStorage.setItem('propai:user', JSON.stringify({ email }))
-			navigate('/')
-		} catch (e) {
-			setError('Login failed. Try again.')
+			console.log('Attempting login with:', email)
+			const result = await loginUser({ email, password })
+			console.log('Login result:', result)
+
+
+			if (result.success && result.payload) {
+				console.log('User data to store:', result.payload)
+				// Store user information in localStorage
+				setUser(result.payload)
+				console.log('User stored, navigating to /listings')
+
+				// Small delay to ensure storage completes
+				// setTimeout(() => {
+				// 	navigate('/listings')
+				// }, 100)
+			} else {
+				console.error('Login failed:', result)
+				setError(result.message || 'Login failed')
+			}
+		} catch (err) {
+			console.error('Login error:', err)
+			setError(err.message || 'Invalid email or password. Please try again.')
 		} finally {
 			setLoading(false)
 		}
 	}
 
 	return (
-		<div className="flex flex-col min-h-screen bg-gray-50">
+		<div className="flex flex-col min-h-screen bg-gray-50 w-full">
 			<NavBar />
 			<main className="flex-1 px-0 py-6 md:py-10">
 				<div className="w-full bg-white border-t md:border rounded-none md:rounded-none shadow-sm p-6">
